@@ -297,7 +297,7 @@ var selN = null;
 
 function flagUrl(cc){ return 'https://flagcdn.com/40x30/'+cc+'.png'; }
 function flagSm(cc){ return 'https://flagcdn.com/20x15/'+cc+'.png'; }
-function esc(t){ return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function esc(t){ return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/'/g,'&#39;').replace(/"/g,'&quot;'); }
 
 function showTab(id,btn){
   document.querySelectorAll('.nb').forEach(function(b){b.classList.remove('on');});
@@ -334,11 +334,13 @@ function openTeam(name,cc,group){
   document.getElementById('tdv').classList.add('on');
   var profile=PD[name]||('Profile for '+name+' coming soon.');
   document.getElementById('tdi').innerHTML=
-    '<div class="dh"><img class="dflag" src="'+flagUrl(cc)+'" alt="'+name+'">'
-    +'<div class="dname">'+name+'</div>'
+    '<div class="dh"><img class="dflag" src="'+flagUrl(cc)+'" alt="">'
+    +'<div class="dname" id="td-name"></div>'
     +'<div class="dsub">Group '+group+' &middot; FIFA World Cup 2026</div></div>'
     +'<div class="abox"><div class="abh"><div class="adot"></div><span class="abt">Team profile &amp; star player</span></div>'
-    +'<div class="abb"><div class="ao">'+esc(profile)+'</div></div></div>';
+    +'<div class="abb"><div class="ao" id="td-text"></div></div></div>';
+  document.getElementById('td-name').textContent=name;
+  document.getElementById('td-text').textContent=profile;
 }
 
 function goBack(){
@@ -406,11 +408,14 @@ function pickN(name,cc,group){
   var box=document.getElementById('hbox');
   box.classList.add('on');
   box.innerHTML=
-    '<div class="hbtop"><img class="hbflag" src="'+flagUrl(cc)+'" alt="'+name+'">'
-    +'<div><div class="hbname">'+name+'</div><div class="hbsub">Group '+group+' &middot; FIFA World Cup 2026</div></div></div>'
-    +'<div class="abox"><div class="abh"><div class="adot"></div><span class="abt">Football history of '+name+'</span></div>'
-    +'<div class="abb"><div class="ao">'+esc(profile)+'</div></div></div>';
-  box.scrollIntoView({behavior:'smooth',block:'nearest'});
+    '<div class="hbtop"><img class="hbflag" src="'+flagUrl(cc)+'" alt="">'
+    +'<div><div class="hbname" id="hb-name"></div><div class="hbsub">Group '+group+' &middot; FIFA World Cup 2026</div></div></div>'
+    +'<div class="abox"><div class="abh"><div class="adot"></div><span class="abt" id="hb-title"></span></div>'
+    +'<div class="abb"><div class="ao" id="hb-text"></div></div></div>';
+  document.getElementById('hb-name').textContent=name;
+  document.getElementById('hb-title').textContent='Football history of '+name;
+  document.getElementById('hb-text').textContent=profile;
+  setTimeout(function(){box.scrollIntoView({behavior:'smooth',block:'nearest'});},50);
 }
 
 buildGroups();
