@@ -10,8 +10,8 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:#0a0a0f;color:#f0f0f0;min-height:100vh;}
 .banner-wrap{width:100%;overflow:hidden;position:relative;background:#000;}
-.banner-wrap img{width:100%;display:block;height:auto;max-height:420px;object-fit:cover;object-position:center top;}
-.banner-wrap::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to bottom,transparent,#0a0a0f);}
+.banner-wrap img{width:100%;display:block;height:auto;}
+
 .last-updated{text-align:center;padding:8px;font-size:11px;color:#444;background:#0d0d1a;letter-spacing:0.05em;}
 .nav{display:flex;gap:6px;padding:12px 20px;background:#0d0d1a;border-bottom:1px solid rgba(255,215,0,0.15);position:sticky;top:0;z-index:99;}
 .nb{flex:1;padding:11px 8px;border:1px solid transparent;background:transparent;border-radius:10px;cursor:pointer;font-size:13px;color:#888;font-family:inherit;transition:all 0.2s;}
@@ -149,6 +149,65 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-
   .hstrip{flex-wrap:wrap;}
   .hstat{min-width:50%;}
 }
+
+/* LIVE PULSE */
+.live-pill{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;padding:3px 10px;border-radius:8px;background:rgba(255,50,50,0.15);color:#ff4444;border:1px solid rgba(255,50,50,0.3);}
+.live-ring{width:8px;height:8px;border-radius:50%;background:#ff4444;animation:liveRing 1.2s ease-in-out infinite;}
+@keyframes liveRing{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.5);opacity:0.4;}}
+
+/* STANDINGS */
+.standings-wrap{margin-top:24px;}
+.standings-group-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#ffd700;margin:20px 0 8px;display:flex;align-items:center;gap:8px;}
+.standings-group-title::before{content:'';display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--gc);}
+.standings-table{width:100%;border-collapse:collapse;margin-bottom:4px;background:#13131f;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);}
+.standings-table th{padding:8px 10px;font-size:10px;font-weight:600;color:#555;text-transform:uppercase;letter-spacing:0.06em;border-bottom:1px solid rgba(255,255,255,0.07);text-align:center;}
+.standings-table th:first-child{text-align:left;padding-left:14px;}
+.standings-table td{padding:8px 10px;font-size:12px;color:#ccc;text-align:center;border-bottom:1px solid rgba(255,255,255,0.04);}
+.standings-table tr:last-child td{border-bottom:none;}
+.standings-table td:first-child{text-align:left;padding-left:14px;}
+.standings-table td:nth-child(2){font-weight:600;color:#eee;}
+.std-pos{width:24px;height:24px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;}
+.std-q{background:rgba(0,200,80,0.15);color:#00c853;}
+.std-x{background:rgba(255,50,50,0.1);color:#666;}
+.std-flag{width:22px;height:16px;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,0.12);vertical-align:middle;margin-right:6px;}
+.std-pts{font-weight:700;color:#ffd700;font-size:13px;}
+.std-form{display:flex;gap:3px;justify-content:center;}
+.std-form span{width:16px;height:16px;border-radius:4px;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.std-w{background:rgba(0,200,80,0.2);color:#00c853;}
+.std-d{background:rgba(255,215,0,0.2);color:#ffd700;}
+.std-l{background:rgba(255,50,50,0.15);color:#ff5252;}
+
+/* TOP SCORERS */
+.scorers-wrap{max-width:860px;margin:20px auto 0;}
+.scorers-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#555;margin:0 0 12px;display:flex;align-items:center;gap:10px;}
+.scorers-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.07);}
+.scorer-row{display:flex;align-items:center;gap:12px;padding:10px 14px;background:#13131f;border:1px solid rgba(255,255,255,0.07);border-radius:10px;margin-bottom:6px;transition:background 0.15s;}
+.scorer-row:hover{background:#1a1a2e;}
+.scorer-rank{width:24px;font-size:12px;font-weight:700;color:#555;text-align:center;flex-shrink:0;}
+.scorer-rank.top{color:#ffd700;}
+.scorer-flag{width:26px;height:19px;object-fit:cover;border-radius:3px;border:1px solid rgba(255,255,255,0.15);flex-shrink:0;}
+.scorer-name{flex:1;font-size:13px;font-weight:600;color:#eee;}
+.scorer-country{font-size:11px;color:#555;margin-top:1px;}
+.scorer-goals{font-size:18px;font-weight:700;color:#ffd700;flex-shrink:0;}
+.scorer-goals-label{font-size:10px;color:#555;flex-shrink:0;}
+
+/* STATS PAGE */
+.stats-page-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:24px;}
+.stat-hero-card{background:#13131f;border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:20px;text-align:center;}
+.shc-num{font-size:36px;font-weight:800;color:#ffd700;line-height:1;}
+.shc-label{font-size:11px;color:#666;margin-top:6px;text-transform:uppercase;letter-spacing:0.08em;}
+
+/* SEARCH BAR */
+.global-search{display:flex;align-items:center;gap:10px;background:#13131f;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:10px 16px;margin:0 20px 0;transition:border-color 0.2s;}
+.global-search:focus-within{border-color:rgba(255,215,0,0.4);}
+.global-search input{flex:1;background:transparent;border:none;outline:none;font-size:14px;color:#eee;font-family:inherit;}
+.global-search input::placeholder{color:#444;}
+.search-results{position:absolute;top:100%;left:0;right:0;background:#13131f;border:1px solid rgba(255,215,0,0.2);border-radius:12px;z-index:200;max-height:300px;overflow-y:auto;display:none;}
+.search-results.show{display:block;}
+.search-result-item{display:flex;align-items:center;gap:10px;padding:10px 16px;cursor:pointer;border-bottom:1px solid rgba(255,255,255,0.05);transition:background 0.15s;}
+.search-result-item:last-child{border-bottom:none;}
+.search-result-item:hover{background:rgba(255,215,0,0.05);}
+.search-wrap{position:relative;flex:1;}
 </style>
 </head>
 <body>
@@ -159,15 +218,26 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-
 
 <div class="last-updated">Last updated: 14 June 2026 &nbsp;|&nbsp; Results verified from ESPN / CBS Sports / Yahoo Sports</div>
 
-<div class="nav">
-  <button class="nb on" onclick="showTab('groups',this)">&#127942; Groups &amp; Teams</button>
-  <button class="nb" onclick="showTab('results',this)">&#128202; Results</button>
-  <button class="nb" onclick="showTab('history',this)">&#128218; History</button>
+<div class="nav" style="flex-wrap:wrap;gap:6px;">
+  <button class="nb on" id="nb-groups" onclick="showTab('groups',this)">&#127942; Groups</button>
+  <button class="nb" id="nb-results" onclick="showTab('results',this)">&#128202; Results</button>
+  <button class="nb" id="nb-history" onclick="showTab('history',this)">&#128218; History</button>
+  <button class="nb" id="nb-stats" onclick="showTab('stats',this)">&#128200; Stats</button>
+  <div class="search-wrap">
+    <div class="global-search">
+      <span style="color:#444;font-size:14px">&#128269;</span>
+      <input type="text" id="gsearch" placeholder="Search teams, players, matches..." oninput="globalSearch(this.value)" onblur="setTimeout(function(){document.getElementById('gsearch-results').classList.remove('show');},200)">
+    </div>
+    <div class="search-results" id="gsearch-results"></div>
+  </div>
 </div>
 
 <div class="sec on" id="sec-groups">
   <div class="stitle">All 12 Groups — 48 Nations</div>
-  <div class="tlv" id="tlv"><div class="gg" id="gg"></div></div>
+  <div class="tlv" id="tlv">
+    <div class="gg" id="gg"></div>
+    <div class="standings-wrap" id="standings-groups" style="margin-top:32px;"></div>
+  </div>
   <div class="tdv" id="tdv">
     <button class="bb" onclick="goBack()">&#8592; Back to Groups</button>
     <div id="tdi"></div>
@@ -178,6 +248,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-
   <div class="stitle">Verified Match Results</div>
   <div class="data-note">&#9432; All scores verified from official sources. <span>Last updated 14 June 2026.</span> Upcoming fixtures shown with kickoff times (ET).</div>
   <div class="mw" id="mw"></div>
+  <div class="standings-wrap" id="standings-results"></div>
 </div>
 
 <div class="sec" id="sec-history">
@@ -185,6 +256,15 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-
   <input class="csi" type="text" id="csi" placeholder="Search a country..." oninput="filterN(this.value)">
   <div class="ng" id="ng"></div>
   <div class="hbox" id="hbox"></div>
+</div>
+
+<div class="sec" id="sec-stats">
+  <div class="stitle">Tournament Statistics</div>
+  <div id="stats-hero-grid" class="stats-page-grid"></div>
+  <div class="stitle" style="margin-top:8px">Top Scorers</div>
+  <div class="scorers-wrap" id="top-scorers-list"></div>
+  <div class="stitle" style="margin-top:24px">Group Standings</div>
+  <div id="standings-all"></div>
 </div>
 
 <script>
@@ -428,7 +508,7 @@ function buildMatches(){
   MD.forEach(function(m){
     var score=(m.st==='FT')?(m.hs+' &ndash; '+m.as):'<span class="mvs">'+(m.time||'TBD')+'</span>';
     var pc=m.st==='FT'?'spill s-ft':'spill s-up';
-    var label=m.st==='TODAY'?'<span class="spill" style="background:rgba(255,100,0,0.12);color:#ff7043;border:1px solid rgba(255,100,0,0.25)">TODAY</span>':'<span class="'+pc+'">'+m.st+'</span>';
+    var label=m.st==='TODAY'?'<span class="live-pill"><span class="live-ring"></span>LIVE</span>':'<span class="'+pc+'">'+m.st+'</span>';
     h+='<div class="mc" onclick="toggleM('+m.id+')">';
     h+='<div class="mct"><span class="mm">Group '+m.g+' &nbsp;&middot;&nbsp; '+m.date+' &nbsp;&middot;&nbsp; '+m.venue+'</span>'+label+'</div>';
     h+='<div class="mteams">';
@@ -619,9 +699,189 @@ var HD = {
   "Ghana":{era:"Founded 1957 · FIFA member 1958",best:"Quarter-finals (2010)",titles:"Africa Cup of Nations × 4 (1963, 1965, 1978, 1982)",moments:["2010 — Came within a penalty of becoming the first African nation in a World Cup semi-final; Suárez's infamous handball; Asamoah Gyan missed the spot-kick","1963-65 — Back-to-back AFCON titles; Ghana establish themselves as Africa's first football powerhouse","Michael Essien, Abedi Pelé and the Ayew family dynasty make Ghana's roll call of world-class talent exceptional","Asamoah Gyan became Africa's all-time top scorer at World Cups with 6 goals across three tournaments"],icon:{photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Abedi_Pele_1992_%28cropped%29.jpg/400px-Abedi_Pele_1992_%28cropped%29.jpg",pos:"Attacking Midfielder / Winger",name:"Abedi Ayew 'Pelé'",born:"5 November 1964, Dome, Accra",clubs:"Real Tamale United, Zurich, Chamois Niortais, Marseille, Lyon, Torino",caps:"73 caps · 33 goals",honours:"UEFA Champions League (Marseille 1993) · African Player of the Year × 3 (1991, 1992, 1993)",bio:"Ghana's greatest ever footballer and the first African player to win the European club game's most prestigious honour. His Champions League victory with Marseille in 1993 confirmed that African football had arrived at the highest level. Three consecutive African Player of the Year awards. His elegance, dribbling and goal-scoring made him the archetype of Ghanaian technical football. His sons André and Jordan Ayew continue the family dynasty."}}
 };
 
+// ── TOP SCORERS DATA ─────────────────────────────────────────────────────────
+var SCORERS = [
+  {name:"Folarin Balogun",cc:"us",country:"USA",goals:2},
+  {name:"Julián Quiñones",cc:"mx",country:"Mexico",goals:1},
+  {name:"Raúl Jiménez",cc:"mx",country:"Mexico",goals:1},
+  {name:"Hwang In-beom",cc:"kr",country:"South Korea",goals:1},
+  {name:"Oh Hyeon-gyu",cc:"kr",country:"South Korea",goals:1},
+  {name:"Alphonso Davies",cc:"ca",country:"Canada",goals:1},
+  {name:"Edin Džeko",cc:"ba",country:"Bosnia & Herz.",goals:1},
+  {name:"Breel Embolo",cc:"ch",country:"Switzerland",goals:1},
+  {name:"Vinícius Jr.",cc:"br",country:"Brazil",goals:1},
+  {name:"Hakim Ziyech",cc:"ma",country:"Morocco",goals:1},
+  {name:"John McGinn",cc:"gb-sct",country:"Scotland",goals:1},
+  {name:"Nestory Irankunda",cc:"au",country:"Australia",goals:1},
+  {name:"Connor Metcalfe",cc:"au",country:"Australia",goals:1},
+  {name:"Gio Reyna",cc:"us",country:"USA",goals:1},
+];
+
+// ── COMPUTE STANDINGS ────────────────────────────────────────────────────────
+function computeStandings(){
+  var table={};
+  // Init all teams
+  Object.keys(GD).forEach(function(g){
+    table[g]={};
+    GD[g].teams.forEach(function(t){
+      table[g][t.n]={n:t.n,cc:t.cc,p:0,w:0,d:0,l:0,gf:0,ga:0,gd:0,pts:0,form:[]};
+    });
+  });
+  // Process results
+  MD.forEach(function(m){
+    if(m.st!=='FT'||m.hs===null) return;
+    var g=m.g;
+    var h=table[g][m.h];
+    var a=table[g][m.a];
+    if(!h||!a) return;
+    h.p++; a.p++;
+    h.gf+=m.hs; h.ga+=m.as; h.gd+=m.hs-m.as;
+    a.gf+=m.as; a.ga+=m.hs; a.gd+=m.as-m.hs;
+    if(m.hs>m.as){h.w++;h.pts+=3;h.form.push('W');a.l++;a.form.push('L');}
+    else if(m.hs===m.as){h.d++;h.pts+=1;h.form.push('D');a.d++;a.pts+=1;a.form.push('D');}
+    else{a.w++;a.pts+=3;a.form.push('W');h.l++;h.form.push('L');}
+  });
+  return table;
+}
+
+function renderStandings(containerId, groupFilter){
+  var table=computeStandings();
+  var html='';
+  var groups=groupFilter?[groupFilter]:Object.keys(GD);
+  groups.forEach(function(g){
+    var rows=Object.values(table[g]).sort(function(a,b){
+      if(b.pts!==a.pts) return b.pts-a.pts;
+      if(b.gd!==a.gd) return b.gd-a.gd;
+      return b.gf-a.gf;
+    });
+    var color=GD[g].color;
+    html+='<div class="standings-group-title" style="--gc:'+color+'">Group '+g+'</div>';
+    html+='<table class="standings-table"><thead><tr>';
+    html+='<th style="width:30px"></th><th style="text-align:left">Team</th>';
+    html+='<th title="Played">P</th><th title="Won">W</th><th title="Drawn">D</th>';
+    html+='<th title="Lost">L</th><th title="Goals For">GF</th><th title="Goals Against">GA</th>';
+    html+='<th title="Goal Difference">GD</th><th title="Points">Pts</th><th>Form</th>';
+    html+='</tr></thead><tbody>';
+    rows.forEach(function(r,i){
+      var posClass=i<2?'std-pos std-q':'std-pos std-x';
+      var formHtml=r.form.map(function(f){
+        var fc=f==='W'?'std-w':f==='D'?'std-d':'std-l';
+        return '<span class="'+fc+'">'+f+'</span>';
+      }).join('');
+      var gdStr=(r.gd>0?'+':'')+r.gd;
+      html+='<tr>';
+      html+='<td><span class="'+posClass+'">'+(i+1)+'</span></td>';
+      html+='<td><img class="std-flag" src="'+flagUrl(r.cc)+'" alt=""><strong>'+r.n+'</strong></td>';
+      html+='<td>'+r.p+'</td><td>'+r.w+'</td><td>'+r.d+'</td><td>'+r.l+'</td>';
+      html+='<td>'+r.gf+'</td><td>'+r.ga+'</td><td>'+gdStr+'</td>';
+      html+='<td class="std-pts">'+r.pts+'</td>';
+      html+='<td><div class="std-form">'+formHtml+'</div></td>';
+      html+='</tr>';
+    });
+    html+='</tbody></table>';
+  });
+  var el=document.getElementById(containerId);
+  if(el) el.innerHTML=html;
+}
+
+// ── TOP SCORERS RENDERER ─────────────────────────────────────────────────────
+function renderScorers(containerId, limit){
+  var sorted=SCORERS.slice().sort(function(a,b){return b.goals-a.goals;});
+  if(limit) sorted=sorted.slice(0,limit);
+  var html='';
+  sorted.forEach(function(s,i){
+    var rankClass=i<3?'scorer-rank top':'scorer-rank';
+    html+='<div class="scorer-row">';
+    html+='<div class="'+rankClass+'">'+(i+1)+'</div>';
+    html+='<img class="scorer-flag" src="'+flagUrl(s.cc)+'" alt="'+s.country+'">';
+    html+='<div><div class="scorer-name">'+s.name+'</div><div class="scorer-country">'+s.country+'</div></div>';
+    html+='<div class="scorer-goals">'+s.goals+'</div>';
+    html+='<div class="scorer-goals-label">goal'+(s.goals!==1?'s':'')+'</div>';
+    html+='</div>';
+  });
+  var el=document.getElementById(containerId);
+  if(el) el.innerHTML=html;
+}
+
+// ── STATS PAGE ───────────────────────────────────────────────────────────────
+function buildStatsPage(){
+  // Compute totals from MD
+  var totalGoals=0,totalMatches=0,upsets=0;
+  MD.forEach(function(m){
+    if(m.st!=='FT'||m.hs===null) return;
+    totalMatches++;
+    totalGoals+=m.hs+m.as;
+  });
+  var gpg=totalMatches>0?(totalGoals/totalMatches).toFixed(2):0;
+  var statsCards=[
+    {num:totalMatches,label:"Matches Played"},
+    {num:totalGoals,label:"Goals Scored"},
+    {num:gpg,label:"Goals Per Game"},
+    {num:48,label:"Nations Competing"},
+    {num:104,label:"Total Matches"},
+    {num:16,label:"Venues"},
+  ];
+  var heroHtml=statsCards.map(function(s){
+    return '<div class="stat-hero-card"><div class="shc-num">'+s.num+'</div><div class="shc-label">'+s.label+'</div></div>';
+  }).join('');
+  document.getElementById('stats-hero-grid').innerHTML=heroHtml;
+  renderScorers('top-scorers-list',20);
+  renderStandings('standings-all');
+}
+
+// ── GLOBAL SEARCH ────────────────────────────────────────────────────────────
+function globalSearch(query){
+  var res=document.getElementById('gsearch-results');
+  if(!query||query.length<2){res.classList.remove('show');return;}
+  var q=query.toLowerCase();
+  var results=[];
+  // Search teams
+  Object.keys(GD).forEach(function(g){
+    GD[g].teams.forEach(function(t){
+      if(t.n.toLowerCase().indexOf(q)!==-1||t.i.toLowerCase().indexOf(q)!==-1){
+        results.push({type:'team',label:t.n,sub:'Group '+g+' · '+t.i,cc:t.cc,n:t.n,grp:g});
+      }
+    });
+  });
+  // Search matches
+  MD.forEach(function(m){
+    if(m.h.toLowerCase().indexOf(q)!==-1||m.a.toLowerCase().indexOf(q)!==-1){
+      var score=m.st==='FT'?m.hs+'-'+m.as:m.time||'TBD';
+      results.push({type:'match',label:m.h+' vs '+m.a,sub:m.date+' · '+score,hcc:m.hcc,acc:m.acc,id:m.id});
+    }
+  });
+  // Search scorers
+  SCORERS.forEach(function(s){
+    if(s.name.toLowerCase().indexOf(q)!==-1){
+      results.push({type:'scorer',label:s.name,sub:s.country+' · '+s.goals+' goal'+(s.goals!==1?'s':''),cc:s.cc});
+    }
+  });
+  if(results.length===0){
+    res.innerHTML='<div style="padding:16px;text-align:center;color:#555;font-size:13px">No results found</div>';
+    res.classList.add('show');
+    return;
+  }
+  var html=results.slice(0,8).map(function(r){
+    var icon='';
+    if(r.type==='team') icon='<img src="'+flagUrl(r.cc)+'" style="width:26px;height:19px;object-fit:cover;border-radius:3px;border:1px solid rgba(255,255,255,0.15)">';
+    else if(r.type==='match') icon='<img src="'+flagUrl(r.hcc)+'" style="width:26px;height:19px;object-fit:cover;border-radius:3px;border:1px solid rgba(255,255,255,0.15)">';
+    else icon='<span style="font-size:18px">&#9917;</span>';
+    var onclick='';
+    if(r.type==='team') onclick='onclick="document.getElementById(\'gsearch\').value=\'\';document.getElementById(\'gsearch-results\').classList.remove(\'show\');showTab(\'history\',document.getElementById(\'nb-history\'));setTimeout(function(){pickN(\''+r.n+'\',\''+r.cc+'\',\''+r.grp+'\');},50);"';
+    else if(r.type==='match') onclick='onclick="document.getElementById(\'gsearch\').value=\'\';document.getElementById(\'gsearch-results\').classList.remove(\'show\');showTab(\'results\',document.getElementById(\'nb-results\'));setTimeout(function(){toggleM('+r.id+');},50);"';
+    return '<div class="search-result-item" '+onclick+'>'+icon+'<div><div style="font-size:13px;font-weight:600;color:#eee">'+r.label+'</div><div style="font-size:11px;color:#666">'+r.sub+'</div></div></div>';
+  }).join('');
+  res.innerHTML=html;
+  res.classList.add('show');
+}
+
+
 buildGroups();
 buildMatches();
 buildNations();
+renderStandings("standings-groups");
+renderStandings("standings-results");
+buildStatsPage();
 </script>
 </body>
 </html>
