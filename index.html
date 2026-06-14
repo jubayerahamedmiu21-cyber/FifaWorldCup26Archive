@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FIFA World Cup 2026 — Archive</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:#0a0a0f;color:#f0f0f0;min-height:100vh;}
+.banner-wrap{width:100%;overflow:hidden;border-radius:0 0 14px 14px;}
+.banner-wrap img{width:100%;display:block;height:auto;}
+.last-updated{text-align:center;padding:8px;font-size:11px;color:#444;background:#0d0d1a;letter-spacing:0.05em;}
+.nav{display:flex;gap:6px;padding:12px 20px;background:#0d0d1a;border-bottom:1px solid rgba(255,215,0,0.15);position:sticky;top:0;z-index:99;}
+.nb{flex:1;padding:11px 8px;border:1px solid transparent;background:transparent;border-radius:10px;cursor:pointer;font-size:13px;color:#888;font-family:inherit;transition:all 0.2s;}
+.nb.on{background:rgba(255,215,0,0.1);color:#ffd700;border-color:rgba(255,215,0,0.3);font-weight:600;}
+.nb:hover:not(.on){background:rgba(255,255,255,0.05);color:#ccc;}
+.sec{display:none;padding:20px;max-width:1400px;margin:0 auto;}
+.sec.on{display:block;}
+.stitle{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#555;margin:0 0 16px;display:flex;align-items:center;gap:10px;}
+.stitle::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.07);}
+/* GROUPS */
+.gg{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;}
+.gc{background:#13131f;border:1px solid rgba(255,255,255,0.08);border-radius:14px;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s;}
+.gc:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,0.5);}
+.gh{padding:12px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.gbadge{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;color:#fff;flex-shrink:0;}
+.gtitle{font-size:14px;font-weight:600;color:#fff;}
+.gflags{font-size:11px;color:#555;margin-top:2px;}
+.tr{display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.05);cursor:pointer;transition:background 0.15s;}
+.tr:last-child{border-bottom:none;}
+.tr:hover{background:rgba(255,215,0,0.05);}
+.tflag{width:28px;height:20px;object-fit:cover;border-radius:3px;flex-shrink:0;border:1px solid rgba(255,255,255,0.15);}
+.ti{flex:1;min-width:0;}
+.tn{font-size:13px;font-weight:600;color:#eee;}
+.tk{font-size:11px;color:#555;margin-top:1px;}
+.ttag{font-size:10px;padding:2px 8px;border-radius:8px;font-weight:600;flex-shrink:0;white-space:nowrap;}
+.t-host{background:rgba(255,180,0,0.12);color:#ffb300;border:1px solid rgba(255,180,0,0.25);}
+.t-champ{background:rgba(0,200,80,0.1);color:#00c853;border:1px solid rgba(0,200,80,0.2);}
+.t-debut{background:rgba(100,180,255,0.1);color:#64b5f6;border:1px solid rgba(100,180,255,0.2);}
+.t-def{background:rgba(255,215,0,0.1);color:#ffd700;border:1px solid rgba(255,215,0,0.25);}
+.chev{color:#333;font-size:14px;margin-left:4px;}
+.tlv.hid{display:none;}
+.tdv{display:none;}
+.tdv.on{display:block;}
+.bb{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.07);border:none;color:#aaa;padding:9px 16px;border-radius:9px;cursor:pointer;font-size:13px;font-family:inherit;margin-bottom:24px;transition:background 0.15s;}
+.bb:hover{background:rgba(255,255,255,0.12);color:#fff;}
+.dh{text-align:center;padding:28px 20px 24px;}
+.dflag{width:96px;height:68px;object-fit:cover;border-radius:10px;margin-bottom:14px;border:2px solid rgba(255,215,0,0.35);}
+.dname{font-size:28px;font-weight:700;color:#fff;margin-bottom:6px;}
+.dsub{font-size:13px;color:#888;}
+.abox{background:#13131f;border:1px solid rgba(255,215,0,0.18);border-radius:14px;overflow:hidden;max-width:760px;margin:0 auto;}
+.abh{padding:12px 18px;background:rgba(255,215,0,0.05);border-bottom:1px solid rgba(255,215,0,0.12);display:flex;align-items:center;gap:10px;}
+.adot{width:8px;height:8px;border-radius:50%;background:#ffd700;flex-shrink:0;}
+.abt{font-size:13px;font-weight:600;color:#ffd700;}
+.abb{padding:20px 18px;}
+.ao{font-size:14px;line-height:1.9;color:#ccc;white-space:pre-wrap;}
+/* RESULTS */
+.mw{display:grid;gap:10px;max-width:860px;margin:0 auto;}
+.data-note{background:rgba(255,215,0,0.05);border:1px solid rgba(255,215,0,0.15);border-radius:10px;padding:12px 16px;font-size:12px;color:#888;margin-bottom:16px;max-width:860px;margin-left:auto;margin-right:auto;}
+.data-note span{color:#ffd700;}
+.mc{background:#13131f;border:1px solid rgba(255,255,255,0.08);border-radius:13px;overflow:hidden;cursor:pointer;transition:all 0.2s;}
+.mc:hover{border-color:rgba(255,215,0,0.22);transform:translateY(-1px);}
+.mct{padding:8px 16px;background:rgba(255,255,255,0.02);border-bottom:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:center;}
+.mm{font-size:11px;color:#555;}
+.spill{font-size:10px;font-weight:700;padding:3px 10px;border-radius:8px;}
+.s-ft{background:rgba(0,200,80,0.1);color:#00c853;border:1px solid rgba(0,200,80,0.2);}
+.s-up{background:rgba(120,120,120,0.1);color:#777;border:1px solid rgba(120,120,120,0.18);}
+.mteams{display:flex;align-items:center;padding:14px 16px;gap:8px;}
+.mteam{flex:1;display:flex;align-items:center;gap:10px;}
+.mteam.r{flex-direction:row-reverse;}
+.mflag{width:36px;height:26px;object-fit:cover;border-radius:4px;border:1px solid rgba(255,255,255,0.15);}
+.mtn{font-size:14px;font-weight:600;color:#eee;}
+.mscore{font-size:26px;font-weight:700;color:#ffd700;min-width:72px;text-align:center;}
+.mvs{font-size:11px;color:#444;font-weight:400;}
+.mexp{display:none;border-top:1px solid rgba(255,255,255,0.06);padding:16px;background:rgba(255,215,0,0.02);}
+.mexp.on{display:block;}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;}
+.sbox{background:#0d0d18;border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:12px;text-align:center;}
+.slbl{font-size:10px;color:#555;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:5px;}
+.sval{font-size:13px;font-weight:600;color:#eee;}
+/* HISTORY */
+.csi{width:100%;padding:11px 16px;background:#13131f;border:1px solid rgba(255,255,255,0.1);border-radius:10px;font-size:14px;color:#eee;font-family:inherit;outline:none;transition:border-color 0.2s;margin-bottom:16px;}
+.csi:focus{border-color:rgba(255,215,0,0.4);}
+.ng{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px;margin-bottom:22px;}
+.nc{background:#13131f;border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:10px 8px;text-align:center;cursor:pointer;transition:all 0.18s;}
+.nc:hover{border-color:rgba(255,215,0,0.3);background:rgba(255,215,0,0.04);}
+.nc.sel{border:2px solid #ffd700;background:rgba(255,215,0,0.07);}
+.nflag{width:40px;height:28px;object-fit:cover;border-radius:4px;margin:0 auto 6px;display:block;border:1px solid rgba(255,255,255,0.15);}
+.nn{font-size:10px;font-weight:600;color:#999;}
+.hbox{background:#13131f;border:1px solid rgba(255,215,0,0.15);border-radius:14px;padding:24px;display:none;}
+.hbox.on{display:block;}
+.hbtop{display:flex;align-items:center;gap:16px;padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.hbflag{width:64px;height:44px;object-fit:cover;border-radius:6px;border:2px solid rgba(255,215,0,0.3);}
+.hbname{font-size:22px;font-weight:700;color:#fff;}
+.hbsub{font-size:12px;color:#666;margin-top:3px;}
+</style>
+</head>
+<body>
+
+<div class="banner-wrap">
+  <img src="banner.png" alt="FIFA World Cup 2026 — 48 Nations Chase the Trophy">
+</div>
+
+<div class="last-updated">Last updated: 14 June 2026 &nbsp;|&nbsp; Results verified from ESPN / CBS Sports / Yahoo Sports</div>
+
+<div class="nav">
+  <button class="nb on" onclick="showTab('groups',this)">&#127942; Groups &amp; Teams</button>
+  <button class="nb" onclick="showTab('results',this)">&#128202; Results</button>
+  <button class="nb" onclick="showTab('history',this)">&#128218; History</button>
+</div>
+
+<div class="sec on" id="sec-groups">
+  <div class="stitle">All 12 Groups — 48 Nations</div>
+  <div class="tlv" id="tlv"><div class="gg" id="gg"></div></div>
+  <div class="tdv" id="tdv">
+    <button class="bb" onclick="goBack()">&#8592; Back to Groups</button>
+    <div id="tdi"></div>
+  </div>
+</div>
+
+<div class="sec" id="sec-results">
+  <div class="stitle">Verified Match Results</div>
+  <div class="data-note">&#9432; All scores verified from official sources. <span>Last updated 14 June 2026.</span> Upcoming fixtures shown with kickoff times (ET).</div>
+  <div class="mw" id="mw"></div>
+</div>
+
+<div class="sec" id="sec-history">
+  <div class="stitle">Football History by Country</div>
+  <input class="csi" type="text" id="csi" placeholder="Search a country..." oninput="filterN(this.value)">
+  <div class="ng" id="ng"></div>
+  <div class="hbox" id="hbox"></div>
+</div>
+
+<script>
+var GD = {
+  A:{color:'#e74c3c',teams:[
+    {n:'Mexico',cc:'mx',i:'El Tri',t:'host'},
+    {n:'South Korea',cc:'kr',i:'Taeguk Warriors'},
+    {n:'South Africa',cc:'za',i:'Bafana Bafana'},
+    {n:'Czechia',cc:'cz',i:'Czech Lions'}
+  ]},
+  B:{color:'#9b59b6',teams:[
+    {n:'Canada',cc:'ca',i:'The Reds',t:'host'},
+    {n:'Switzerland',cc:'ch',i:'Swiss Nati'},
+    {n:'Qatar',cc:'qa',i:'The Maroons'},
+    {n:'Bosnia & Herz.',cc:'ba',i:'The Dragons'}
+  ]},
+  C:{color:'#27ae60',teams:[
+    {n:'Brazil',cc:'br',i:'Seleção',t:'champ'},
+    {n:'Morocco',cc:'ma',i:'Atlas Lions'},
+    {n:'Scotland',cc:'gb-sct',i:'Tartan Army'},
+    {n:'Haiti',cc:'ht',i:'Grenadiers'}
+  ]},
+  D:{color:'#2980b9',teams:[
+    {n:'USA',cc:'us',i:'Stars & Stripes',t:'host'},
+    {n:'Paraguay',cc:'py',i:'La Albirroja'},
+    {n:'Australia',cc:'au',i:'Socceroos'},
+    {n:'Türkiye',cc:'tr',i:'Crescent Stars'}
+  ]},
+  E:{color:'#e67e22',teams:[
+    {n:'Germany',cc:'de',i:'Die Mannschaft',t:'champ'},
+    {n:'Ecuador',cc:'ec',i:'La Tri'},
+    {n:'Ivory Coast',cc:'ci',i:'The Elephants'},
+    {n:'Curaçao',cc:'cw',i:'Blue-Whites',t:'debut'}
+  ]},
+  F:{color:'#16a085',teams:[
+    {n:'Netherlands',cc:'nl',i:'Oranje'},
+    {n:'Japan',cc:'jp',i:'Blue Samurai'},
+    {n:'Tunisia',cc:'tn',i:'Eagles of Carthage'},
+    {n:'Sweden',cc:'se',i:'Blågult'}
+  ]},
+  G:{color:'#c0392b',teams:[
+    {n:'Belgium',cc:'be',i:'Red Devils'},
+    {n:'IR Iran',cc:'ir',i:'Team Melli'},
+    {n:'Egypt',cc:'eg',i:'The Pharaohs'},
+    {n:'New Zealand',cc:'nz',i:'All Whites'}
+  ]},
+  H:{color:'#8e44ad',teams:[
+    {n:'Spain',cc:'es',i:'La Roja',t:'champ'},
+    {n:'Uruguay',cc:'uy',i:'La Celeste'},
+    {n:'Saudi Arabia',cc:'sa',i:'Green Falcons'},
+    {n:'Cape Verde',cc:'cv',i:'Blue Sharks'}
+  ]},
+  I:{color:'#2ecc71',teams:[
+    {n:'France',cc:'fr',i:'Les Bleus',t:'champ'},
+    {n:'Senegal',cc:'sn',i:'Lions of Teranga'},
+    {n:'Norway',cc:'no',i:'Viking Warriors'},
+    {n:'Iraq',cc:'iq',i:'Lions of Mesopotamia'}
+  ]},
+  J:{color:'#3498db',teams:[
+    {n:'Argentina',cc:'ar',i:'La Albiceleste',t:'def'},
+    {n:'Austria',cc:'at',i:'Das Team'},
+    {n:'Algeria',cc:'dz',i:'Desert Foxes'},
+    {n:'Jordan',cc:'jo',i:'The Nashama',t:'debut'}
+  ]},
+  K:{color:'#e74c3c',teams:[
+    {n:'Portugal',cc:'pt',i:'A Seleção'},
+    {n:'Colombia',cc:'co',i:'Los Cafeteros'},
+    {n:'Uzbekistan',cc:'uz',i:'White Wolves',t:'debut'},
+    {n:'DR Congo',cc:'cd',i:'Leopards'}
+  ]},
+  L:{color:'#1abc9c',teams:[
+    {n:'England',cc:'gb-eng',i:'Three Lions',t:'champ'},
+    {n:'Croatia',cc:'hr',i:'Vatreni'},
+    {n:'Panama',cc:'pa',i:'Los Canaleros'},
+    {n:'Ghana',cc:'gh',i:'Black Stars'}
+  ]}
+};
+
+var MD = [
+  {id:1,g:'A',hcc:'mx',h:'Mexico',acc:'za',a:'South Africa',hs:2,as:0,st:'FT',date:'Jun 11',venue:'Estadio Azteca, Mexico City',
+   motm:'Julián Quiñones',goals:"Quiñones 9' · Jiménez 61'",
+   report:"Mexico kicked off their home World Cup in front of a packed Estadio Azteca with a controlled 2-0 victory over South Africa. Julián Quiñones gave El Tri an early lead just nine minutes in with the first goal of the entire 2026 tournament, before Raúl Jiménez doubled the advantage in the second half. South Africa competed with heart but could not find a way through Mexico's defensive discipline. The Azteca became the first stadium to host matches at three separate men's World Cups — 1970, 1986, and now 2026. A perfect start for the co-hosts."},
+  {id:2,g:'A',hcc:'kr',h:'South Korea',acc:'cz',a:'Czechia',hs:2,as:1,st:'FT',date:'Jun 11',venue:'Estadio Akron, Guadalajara',
+   motm:'Hwang In-beom',goals:"Krejčí 55' (CZE) | Hwang In-beom 67' · Oh 78'",
+   report:"South Korea produced a stirring comeback to defeat Czechia 2-1 in Guadalajara. Ladislav Krejčí gave the Czechs the lead with a header from a throw-in in the 55th minute, but South Korea responded superbly. Hwang In-beom levelled with a chipped finish, then substitute Oh sealed the win in the 78th minute after a flowing move. Hwang In-beom earned Man of the Match with a performance that recalled the best of Korea's 2002 heroics. Son Heung-min created chances throughout before being substituted. A vital three points for the Taeguk Warriors."},
+  {id:3,g:'B',hcc:'ca',h:'Canada',acc:'ba',a:'Bosnia & Herz.',hs:1,as:1,st:'FT',date:'Jun 12',venue:'BMO Field, Toronto',
+   motm:'Alphonso Davies',goals:"Davies 33' | Džeko 67'",
+   report:"Canada and Bosnia & Herzegovina shared the spoils in an entertaining Group B opener at BMO Field. Alphonso Davies opened the scoring in the 33rd minute, driving onto a through ball and finishing calmly in front of a passionate home crowd. Bosnia grew into the match and veteran Edin Džeko levelled in the 67th minute with a composed finish — his 65th international goal. Davies was magnificent throughout and took the Man of the Match award despite the draw. Both teams remain in contention to progress from the group."},
+  {id:4,g:'D',hcc:'us',h:'USA',acc:'py',a:'Paraguay',hs:4,as:1,st:'FT',date:'Jun 12',venue:'SoFi Stadium, Los Angeles',
+   motm:'Folarin Balogun',goals:"Bobadilla 7' OG · Balogun 31' · Balogun 45+5' · Reyna 90+8' | Maurício 73'",
+   report:"The United States delivered a statement 4-1 victory over Paraguay at a sold-out SoFi Stadium to open their home World Cup campaign. Paraguay's Damián Bobadilla turned into his own net in the seventh minute to gift the USA an early lead, before Folarin Balogun took over with two brilliant first-half finishes — the second a stunning left-foot finish after he beat two defenders. Maurício pulled one back for Paraguay in the 73rd minute, but substitute Gio Reyna sealed the win in stunning fashion in the 90th minute with a trademark outside-of-the-boot strike. Balogun became the first USMNT player to score two goals in a World Cup match since 1930."},
+  {id:5,g:'B',hcc:'ch',h:'Switzerland',acc:'qa',a:'Qatar',hs:1,as:1,st:'FT',date:'Jun 13',venue:"Levi's Stadium, Santa Clara",
+   motm:'Boualem Khoukhi',goals:"Embolo 17' (PEN) (SUI) | Khoukhi 90+5'",
+   report:"Qatar produced a dramatic last-gasp equaliser to stun Switzerland 1-1 at Levi's Stadium. Breel Embolo converted a penalty in the 17th minute to give the Swiss a comfortable lead they held for most of the match. Switzerland dominated possession and statistics throughout but paid for their complacency when Qatar captain Boualem Khoukhi rose to head home a cross in the 95th minute to send the Qatar fans into delirium. A stunning point for the 2022 World Cup hosts against a side ranked significantly above them."},
+  {id:6,g:'C',hcc:'br',h:'Brazil',acc:'ma',a:'Morocco',hs:1,as:1,st:'FT',date:'Jun 13',venue:'MetLife Stadium, New York',
+   motm:'Vinícius Jr.',goals:"Vinícius Jr. 41' | Ziyech 88'",
+   report:"Brazil and Morocco produced the tournament's most anticipated Group C clash, ending in a gripping 1-1 draw at MetLife Stadium. Vinícius Jr. gave Brazil the lead with a moment of sublime quality in the 41st minute, controlling a long ball on his chest before sweeping a first-time finish past the keeper. Morocco pressed relentlessly and were rewarded two minutes from time when Hakim Ziyech curled a stunning free-kick into the top corner to send the Atlas Lions fans wild. Vinícius took Man of the Match for his constant threat, but Morocco will be delighted with a point against the five-time champions."},
+  {id:7,g:'C',hcc:'gb-sct',h:'Scotland',acc:'ht',a:'Haiti',hs:1,as:0,st:'FT',date:'Jun 13',venue:'Gillette Stadium, Boston',
+   motm:'John McGinn',goals:"McGinn 28'",
+   report:"Scotland ended their 28-year World Cup absence with a hard-fought 1-0 win over Haiti. John McGinn — Scotland's captain and heartbeat — headed home in the 28th minute after Che Adams' shot was parried, sparking scenes of joy among the tartan army. Haiti pressed and created moments of danger in the second half, but Scotland's defensive organisation held firm. McGinn covered every inch of the pitch, won duels, led by example, and scored the winner — a complete captain's performance. A historic night for Scottish football."},
+  {id:8,g:'D',hcc:'au',h:'Australia',acc:'tr',a:'Türkiye',hs:2,as:0,st:'FT',date:'Jun 13',venue:'BC Place, Vancouver',
+   motm:'Nestory Irankunda',goals:"Irankunda 27' · Metcalfe 75'",
+   report:"Australia produced the tournament's biggest upset so far, stunning Türkiye 2-0 in Vancouver to take three points in Group D. Nestory Irankunda delivered a brilliant counter-attacking finish in the 27th minute — first touch, instant control, composed finish — to give the Socceroos an early lead. Türkiye pressed furiously but coach Tony Popovic's defensive setup was resolute throughout. Connor Metcalfe sealed the win from outside the box in the 75th minute. Australia now sit level on points with the USA at the top of Group D. Irankunda's performance was the talk of the tournament."},
+  {id:9,g:'E',hcc:'de',h:'Germany',acc:'cw',a:'Curaçao',hs:null,as:null,st:'TODAY',date:'Jun 14',venue:'NRG Stadium, Houston',time:'1:00 PM ET'},
+  {id:10,g:'F',hcc:'nl',h:'Netherlands',acc:'jp',a:'Japan',hs:null,as:null,st:'TODAY',date:'Jun 14',venue:'AT&T Stadium, Dallas',time:'4:00 PM ET'},
+  {id:11,g:'E',hcc:'ci',h:'Ivory Coast',acc:'ec',a:'Ecuador',hs:null,as:null,st:'UPCOMING',date:'Jun 14',venue:'Mercedes-Benz Stadium, Atlanta',time:'7:00 PM ET'},
+  {id:12,g:'F',hcc:'se',h:'Sweden',acc:'tn',a:'Tunisia',hs:null,as:null,st:'UPCOMING',date:'Jun 14',venue:'Arrowhead Stadium, Kansas City',time:'10:00 PM ET'},
+  {id:13,g:'H',hcc:'es',h:'Spain',acc:'cv',a:'Cape Verde',hs:null,as:null,st:'UPCOMING',date:'Jun 15',venue:'Mercedes-Benz Stadium, Atlanta',time:'12:00 PM ET'},
+  {id:14,g:'G',hcc:'be',h:'Belgium',acc:'eg',a:'Egypt',hs:null,as:null,st:'UPCOMING',date:'Jun 15',venue:'Hard Rock Stadium, Miami',time:'3:00 PM ET'},
+  {id:15,g:'H',hcc:'sa',h:'Saudi Arabia',acc:'uy',a:'Uruguay',hs:null,as:null,st:'UPCOMING',date:'Jun 15',venue:'AT&T Stadium, Dallas',time:'6:00 PM ET'},
+  {id:16,g:'G',hcc:'ir',h:'IR Iran',acc:'nz',a:'New Zealand',hs:null,as:null,st:'UPCOMING',date:'Jun 15',venue:'Lumen Field, Seattle',time:'9:00 PM ET'}
+];
+
+var PD = {
+  "Mexico":"Mexico — El Tri — carry the honour of co-hosting the World Cup for a record third time, following 1970 and 1986. Their identity is built on passion, technical flair in midfield, and a fanbase that transforms every home match into a wall of noise. The Azteca is their fortress.\n\nHirving 'Chucky' Lozano is Mexico's most dynamic attacker — the PSV Eindhoven and former Napoli winger whose pace and directness have made him CONCACAF's most feared wide player for the better part of a decade. Raúl Jiménez, the veteran Wolverhampton striker, provides the target man presence and leadership, while Guillermo Ochoa between the posts remains one of the great World Cup goalkeepers — famous for stunning saves against Brazil and Argentina in previous tournaments.\n\nFor El Tri in 2026, this is the tournament where the 'Quinto Partido' curse must end. Seven consecutive round-of-16 eliminations haunt this nation. Playing in front of their own fans in Mexico City, Guadalajara, and beyond, the pressure and the opportunity have never been greater. Three points against South Africa was the perfect opening statement.",
+  "South Korea":"South Korea's defining World Cup moment came in 2002 when they reached the semi-finals as co-hosts, defeating Spain and Italy along the way. That miraculous run built a football culture of belief and collective intensity that continues to define the Taeguk Warriors today.\n\nSon Heung-min is the greatest South Korean footballer of his generation and one of the Premier League's finest ever attackers. His 2021-22 Golden Boot — shared with Mohamed Salah — was the pinnacle of Asian achievement in European football. His pace, technical quality and ability to score spectacular goals have made him a global icon. Every Korean child grows up with Son as their hero. When he plays well, South Korea become a genuinely dangerous side.\n\nIn 2026, South Korea face Group A including hosts Mexico. Their 2-1 comeback win over Czechia in the opener — with Hwang In-beom's brilliant performance — showed this team believes in itself. Getting out of the group is achievable. And if Son fires, repeating 2002 is not beyond imagination.",
+  "South Africa":"South Africa — Bafana Bafana — hold a unique place in World Cup history as hosts of the 2010 tournament, the first ever held on African soil. Their presence at the 2026 tournament, alongside Mexico and South Korea in Group A, represents African football's continued ambition on the global stage.\n\nPercy Tau is South Africa's most technically gifted modern player — the winger whose stints at Brighton and Belgian football gave him European quality. Lyle Foster of Burnley provides physical goal-scoring threat up front. Coach Hugo Broos has built a resilient, well-organised unit that is difficult to break down and dangerous on the counter.\n\nGroup A is tough — Mexico and South Korea are both quality sides. But South Africa carry the spirit of a nation that dreamed big in 2010 and wants to show the world that African football belongs at the top table. A surprise result is never beyond them.",
+  "Czechia":"Czechia — the Czech Lions — carry the history of Czechoslovakia's runners-up finishes at the 1934 and 1962 World Cups. Since independence in 1993, the Czech Republic has produced consistent, technically solid sides capable of competing with Europe's best.\n\nPatrick Schick is Czechia's most dangerous attacker — the Bayer Leverkusen striker whose powerful finishing, aerial ability and composure in big moments make him a threat against any defence. His extraordinary long-range goal against Scotland at Euro 2020 is among the great European Championship strikes. Captain Tomáš Souček provides midfield leadership and goals from set pieces.\n\nCzechia fell to South Korea in their opener but can still progress from Group A. Their organisation and quality mean every remaining game will be competitive. Schick's ability to produce a moment of brilliance can change any match.",
+  "Canada":"Canada — the Reds — are making their first World Cup appearance since 1986, and as co-hosts they carry the expectations of a football-hungry nation that has undergone a genuine revolution in the sport over the past decade.\n\nAlphonso Davies is Canada's superstar and the face of this golden generation — a Bayern Munich left-back of extraordinary pace and directness who is one of Europe's most dynamic wide players. His story is one of football's most inspiring: arriving in Canada as a refugee child, rising to win the Champions League with Bayern. Jonathan David (Lille's prolific striker) and Stephen Eustáquio (Porto) form a spine capable of competing with any nation.\n\nCanada drew 1-1 with Bosnia in their opener, Davies opening the scoring in front of a passionate Toronto crowd. Getting out of Group B — with Qatar and Switzerland remaining — is the clear goal. If they do, a home knockout run becomes possible. Canadian football's moment has arrived.",
+  "Switzerland":"Switzerland — the Swiss Nati — are one of Europe's most reliable tournament performers, technically proficient, defensively organised, and consistently competitive against higher-ranked opponents.\n\nGranit Xhaka is Switzerland's engine — the Arsenal captain whose transformation from disciplinary risk to elite leader has been one of football's great personal stories. His passing range, ability to control game tempo, and intensity make him Switzerland's most influential player. Breel Embolo's pace and power up front give them a direct attacking option.\n\nSwitzerland were dramatically held 1-1 by Qatar in their opener despite dominating, Khoukhi's 95th-minute header denying them a deserved win. They must respond against Bosnia and Canada. The Swiss are always dangerous in knockout football — if they progress, opponents will not relish facing them.",
+  "Qatar":"Qatar — the Maroons — made history as 2022 World Cup hosts, becoming the first host nation eliminated in the group stage without a win. But qualifying for 2026 on merit and then earning a dramatic 1-1 draw against Switzerland shows genuine development.\n\nAkram Afif is Qatar's standout talent — the Al-Sadd winger and Asian Player of the Year whose dribbling, pace and direct running make him their most dangerous attacker. Captain Boualem Khoukhi's 95th-minute header against Switzerland announced him to the world and showed Qatar's never-say-die spirit.\n\nGroup B alongside Canada and Bosnia is difficult, but Qatar have shown they can compete. A point against Switzerland is already a better start than 2022. Progress from the group would be a historic achievement for Qatari football.",
+  "Bosnia & Herz.":"Bosnia and Herzegovina — the Dragons — made their World Cup debut in 2014 and have been building steadily. Their football identity is built on technical quality and flair, with players developed across European leagues.\n\nEdin Džeko is the titan of Bosnian football — one of the most prolific strikers of his generation who has scored goals for Manchester City, Roma, Inter Milan, and Fenerbahçe across a remarkable career. His 67-plus international goals make him one of Europe's all-time leading scorers. At 38 in 2026, this is almost certainly his farewell to tournament football. What Džeko has meant to Bosnian football is immeasurable.\n\nA 1-1 draw with Canada in the opener — Džeko again providing the goal — keeps Bosnia very much in contention. Switzerland and Qatar remain, and Bosnia have the quality to progress from this group.",
+  "Brazil":"Brazil — A Seleção — are the most decorated nation in football history: five World Cup titles, the only nation to have qualified for every tournament. Their identity is synonymous with jogo bonito — creativity, skill, and joy. Pelé, Ronaldo, Ronaldinho, Zico, Romário — Brazil's roll call of legends is unmatched.\n\nVinícius Júnior is Brazil's talisman for 2026 — the Real Madrid winger and Ballon d'Or contender whose pace, dribbling and finishing have established him among the world's best two or three players. His Champions League-winning performances have confirmed his elite status. Alongside Rodrygo, Raphinha, and the combative Casemiro in midfield, Brazil possess extraordinary depth.\n\nA 1-1 draw with Morocco in the opener — Vinícius scoring but Ziyech's late free-kick denying a win — showed Brazil are formidable but not invincible. Their last title was 2002. The hunger to end that wait on North American soil is immense.",
+  "Morocco":"Morocco — the Atlas Lions — made history at the 2022 Qatar World Cup as the first African nation to reach the semi-finals, defeating Belgium, Spain and Portugal along the way. Coach Walid Regragui built something extraordinary: a defensively impregnable, counter-attacking machine driven by collective spirit and genuine quality.\n\nHakim Ziyech is Morocco's creative heartbeat — the PSG winger whose technical ability, free-kick delivery and ability to create from nothing make him their most dangerous attacker. Achraf Hakimi's explosive attacks from right-back provide a second dimension that unsettles any defence. Their late equaliser against Brazil — Ziyech's stunning free-kick in the 88th minute — showed Morocco's belief that they belong at the top table.\n\nMorocco enter 2026 with one goal: go further than 2022. A semi-final was a miracle; a final is the ambition. Group C alongside Brazil, Scotland and Haiti is navigable if the Atlas Lions perform. Expect them to.",
+  "Scotland":"Scotland — the Tartan Army — ended a 28-year World Cup absence in 2026, qualifying through a memorable campaign that reignited the nation's connection with the global stage. The last appearance was France 1998.\n\nJohn McGinn — Aston Villa's combative, energetic captain — is Scotland's heartbeat and proved it immediately, scoring the winner against Haiti in the 28th minute of their very first game. Andrew Robertson's experience at left-back and the creativity of Che Adams up front complement McGinn's relentless leadership. Scotland's collective organisation makes them difficult to beat.\n\nGroup C with Brazil and Morocco is demanding, but Scotland have already claimed three crucial points. If they can take something from Morocco, a historic knockout round appearance becomes possible for the first time since 1998.",
+  "Haiti":"Haiti — the Grenadiers — represent the Caribbean's football spirit and the resilience of a nation that has overcome extraordinary hardship. Their qualification for the 2026 World Cup is itself a remarkable achievement that deserves recognition.\n\nDuckens Nazon leads Haiti's attack — a direct, pacey winger whose CONCACAF performances earned his nation their place at this tournament. The squad draws on the Haitian diaspora across North America and France, providing more quality than the nation's circumstances might suggest.\n\nGroup C with Brazil and Morocco is an enormous challenge after the Scotland defeat. But Haiti represent their people with pride, and competing on the World Cup stage is an achievement in itself.",
+  "USA":"The United States — Stars and Stripes — are co-hosts and arguably the most improved footballing nation on the planet over the past decade. From World Cup quarter-finalists in 2002 to a generation developed in Europe's elite leagues, American football has genuinely arrived.\n\nChristian Pulisic is America's captain and most recognisable face — a genuine world-class wide player at AC Milan whose pace, technical ability and clutch moments in big matches have made him one of Europe's elite attackers. But Folarin Balogun stole the show against Paraguay, scoring twice with composed, intelligent finishing that announced his arrival on the global stage. He became the first USMNT player to score two World Cup goals in a match since 1930.\n\nThe 4-1 demolition of Paraguay — described by some pundits as resembling 'prime Barcelona' in their first-half football — sent a statement to the entire tournament. The USA, at home, with Pulisic, Balogun and Reyna firing, are a dangerous prospect for any nation.",
+  "Paraguay":"Paraguay — La Albirroja — are one of South America's most combative and organised footballing nations, World Cup quarter-finalists in 2010 and a side that always competes above their FIFA ranking.\n\nMiguel Almirón is Paraguay's most recognisable player — the Newcastle United midfielder whose relentless running, technical quality and ability to contribute goals and assists make him their key man in the middle third. His energy and commitment are central to Paraguay's work ethic.\n\nA 4-1 opening defeat to the USA is a significant setback, but Paraguay have shown in the past that they can respond to adversity. Turkey and Australia remain — progress from Group D requires a response in those fixtures.",
+  "Australia":"Australia — the Socceroos — reached the quarter-finals of the 2022 World Cup and have built on that momentum. Their stunning 2-0 victory over Türkiye in Vancouver — one of the biggest upsets of the tournament so far — showed this team is genuine.\n\nNestory Irankunda — the teenage Adelaide United winger — delivered a performance that left the footballing world talking. His first touch and finish to open the scoring showed composure far beyond his years. Connor Metcalfe's second goal sealed a famous win. Coach Tony Popovic's defensive organisation proved masterful.\n\nAustralia now sit level at the top of Group D with the USA after one match. Their remaining fixtures against Paraguay and Türkiye are winnable. The Socceroos are no longer underdogs — they are a genuine knockout stage contender.",
+  "Türkiye":"Türkiye — the Crescent Stars — reached the semi-finals of the 2002 World Cup and have a tradition of producing technically gifted, physical players who compete with intensity.\n\nArda Güler — the Real Madrid attacking midfielder — is Türkiye's most exciting young talent, a technically sublime player whose dribbling and goal-scoring ability have drawn comparisons with the great Turkish attacking players of previous generations. His combination with the experienced Hakan Çalhanoğlu in midfield gives Türkiye real quality.\n\nA 2-0 defeat to Australia was a shock, but Türkiye have the quality to respond. Paraguay and USA remain in Group D — points are still available and Güler has the ability to change any game.",
+  "Germany":"Germany — Die Mannschaft — are four-time world champions (1954, 1974, 1990, 2014) and one of football's most enduring powers. After a painful group-stage exit at Euro 2024 on home soil, Germany enter 2026 with renewed hunger under Julian Nagelsmann.\n\nFlorian Wirtz represents Germany's exciting future — the Bayern Munich playmaker who at 22 has already won a Bundesliga and delivered performances of extraordinary maturity. His vision, technical quality and calmness in tight spaces are exceptional. Jamal Musiala provides a second creative dimension with his electric dribbling. Together they form one of Europe's most exciting young midfields.\n\nGermany face Curaçao in their opening match — a fixture they should win comfortably. Ecuador and Ivory Coast represent real tests, but this German side has the talent to navigate Group E and make a deep run into the tournament.",
+  "Ecuador":"Ecuador — La Tri — have established themselves as South America's most consistent qualifiers over the past two decades, appearing at four World Cups since 2002. Their style is direct, organised and built on collective effort.\n\nEnner Valencia — Ecuador's all-time record goalscorer — opened the 2022 World Cup with two goals against hosts Qatar. Now 34, this is almost certainly his farewell tournament, and his leadership and goal-scoring threat remain central to Ecuador's attack. Moisés Caicedo's rise to become one of Chelsea's most important players gives Ecuador a genuine world-class midfielder.\n\nGroup E with Germany and Ivory Coast is challenging. But Ecuador are never easy opponents — Valencia's experience and Caicedo's quality give them the tools to compete.",
+  "Ivory Coast":"Ivory Coast — the Elephants — are Africa's 2015 and 2023 AFCON champions, one of the continent's most naturally gifted footballing nations with a long tradition of producing technically exceptional, physically powerful attackers.\n\nWilfried Zaha leads the attack with pace, directness and technical quality developed across a long career in English football. Sébastien Haller — whose recovery from testicular cancer to become one of Europe's leading strikers is one of football's most inspiring stories — provides physical goal-scoring power. Their combination gives Ivory Coast one of the most dangerous forward lines in Group E.\n\nGroup E alongside Germany is tough, but the Elephants have the individual quality to cause problems for any side. AFCON champions believe they belong among football's elite.",
+  "Curaçao":"Curaçao — the Blue-Whites — are making their historic World Cup debut, a remarkable achievement for an island of just 150,000 people. Their qualification is one of the great underdog stories of modern football.\n\nThe squad draws on the Dutch-Caribbean diaspora, with several players possessing experience in European leagues. Leandro Bacuna's veteran leadership provides the backbone of a team punching far above their weight simply by being here.\n\nFacing Germany in their opening fixture is the ultimate challenge, but Curaçao's presence is already a victory. They represent the World Cup's power to inspire nations of all sizes, and their debut will be remembered long after the final whistle.",
+  "Netherlands":"The Netherlands — Oranje — are three-time World Cup finalists (1974, 1978, 2010) and inventors of Total Football. Their tradition of producing world-class players from a nation of 18 million continues to defy expectation.\n\nVirgil van Dijk — Liverpool's captain and the world's finest central defender — anchors the Dutch defence with authority, intelligence and leadership that few centre-backs in history have matched. Cody Gakpo's physical directness and Xavi Simons' elegant playmaking give Netherlands real attacking variety. They face Japan in their Group F opener — a test of quality against one of Asia's finest.\n\nUnder Ronald Koeman, Netherlands play direct, physical football that maximises their strengths. Getting through Group F should be achievable, and once in knockout football the famous Oranje belief takes over.",
+  "Japan":"Japan — the Blue Samurai — shocked the world in 2022 by defeating Germany and Spain in the group stage to top their group. That achievement confirmed Japan's technical development into a genuine force capable of beating the very best on any given day.\n\nKaoru Mitoma's extraordinary dribbling — studied academically for its unique body-feint technique — makes him one of the most difficult wingers in the world to defend against. His Premier League performances with Brighton have established him as elite. Captain Wataru Endo provides midfield substance and leadership, while goalkeeper Zion Suzuki has become one of Asia's best shot-stoppers.\n\nGroup F alongside the Netherlands is Japan's toughest opening draw. But this team believes it can beat anyone — and their 2022 results proved it. The Blue Samurai will not be intimidated.",
+  "Tunisia":"Tunisia — Eagles of Carthage — are Africa's most frequent World Cup participants and carry the pride of a deeply football-passionate nation. Their technical style, developed under years of European influence, makes them an organised and competent side.\n\nHannibal Mejbri — the Birmingham City and Manchester United midfield talent — is Tunisia's most exciting young player, combining physical combativeness with technical quality that gives Tunisia genuine European-level competitiveness in the middle third.\n\nGroup F alongside Netherlands and Japan is demanding. But Tunisia are never easy opponents and carry African continental pride into every fixture.",
+  "Sweden":"Sweden — Blågult — have a proud tradition: runners-up at the 1958 World Cup and third place in 1994. Viktor Gyökeres — Sporting CP's extraordinary striker who scored 43 goals in all competitions in 2023-24 — is Sweden's new great hope, a target man of power, pace and clinical finishing who has announced himself as one of Europe's most feared strikers.\n\nSince Zlatan Ibrahimovic's retirement from international football, Sweden searched for their next great striker. In Gyökeres, they have found him. Martin Ødegaard's Arsenal creativity gives them an excellent platform to supply their talisman.\n\nGroup F gives Sweden a genuine opportunity to reach the knockout rounds. Gyökeres' goals will be central to everything they do.",
+  "Belgium":"Belgium's golden generation peaked at the 2018 World Cup with a semi-final. Kevin De Bruyne remains the heartbeat — the Manchester City midfielder widely considered the finest playmaker of his generation. When De Bruyne is fit and engaged, Belgium are genuinely elite. Romelu Lukaku, their all-time top scorer, provides physical goal-scoring threat despite injury setbacks.\n\nGroup G — Iran, Egypt, New Zealand — is Belgium's most favourable opening draw in years. Progression is expected. The real question is how far they can go in the knockout rounds with De Bruyne driving them forward.",
+  "IR Iran":"Iran — Team Melli — are one of Asia's strongest footballing nations with six World Cup appearances. Their 1998 victory over the USA remains one of the most politically charged matches in football history.\n\nSardar Azmoun — the Bayer Leverkusen striker known as the 'Iranian Messi' — combines with Mehdi Taremi to give Iran arguably Asia's best attacking partnership. Taremi's Champions League goals for Porto confirmed his elite quality. Together they are a genuine threat against any defence.\n\nGroup G alongside Belgium is tough, but Iran's quality means they can compete for progression. Azmoun and Taremi have the ability to decide matches at the highest level.",
+  "Egypt":"Egypt — the Pharaohs — are seven-time African champions with a football culture among the most intense and passionate on the continent. 100 million fans watch their every move.\n\nMohamed Salah is Egypt's greatest player and one of football's absolute elite — the Liverpool forward who has scored over 200 Premier League goals and won a Champions League. His pace, finishing and consistency over many seasons at the very highest level set him apart from almost everyone. For Egypt, Salah is everything — captain, talisman, and the reason the world's football fans recognise Egyptian football.\n\nGroup G with Belgium, Iran and New Zealand gives Egypt a genuine chance to progress. If Salah is fit and firing — and there is no reason to think otherwise — Egypt are a serious threat to reach the knockout rounds.",
+  "New Zealand":"New Zealand — the All Whites — went through the entire 2010 World Cup group stage unbeaten, drawing all three matches. In a nation where rugby dominates, football's growth has been steady and their 2026 qualification is another milestone.\n\nChris Wood — Nottingham Forest's experienced Premier League striker — has been the consistent focal point of New Zealand's attack for over a decade. His aerial ability and composure in front of goal remain valuable even as he approaches the end of his international career.\n\nGroup G with Belgium, Iran and Egypt is very challenging, but New Zealand always compete with spirit and organisation. A famous result against one of the established nations cannot be ruled out.",
+  "Spain":"Spain — La Roja — are reigning European champions, FIFA's top-ranked nation, and arriving in 2026 with arguably the most exciting squad they have assembled since the tiki-taka era that won the 2010 World Cup.\n\nLamine Yamal — just 17 years old — has already confirmed himself as one of the most extraordinary talents in football history. Scoring the equaliser in the Euro 2024 final on the night of his 17th birthday was a moment that transcended sport. His dribbling, composure and final product are those of a player a decade older. Alongside Yamal, Pedri's midfield mastery, Rodri's control, and Dani Olmo's clinical finishing make Spain the complete side.\n\nSpain are legitimate favourites for the 2026 World Cup. Their Group H — Uruguay, Saudi Arabia, Cape Verde — should be navigated with authority. In the knockout rounds, their quality and style demand nothing less than the final.",
+  "Uruguay":"Uruguay — La Celeste — are two-time world champions (1930, 1950) and South America's most battle-hardened footballing nation. Garra charrúa — an untranslatable fighting spirit — means they are never beaten until the final whistle.\n\nFederico Valverde is Uruguay's engine — the Real Madrid midfielder who has established himself as one of Europe's finest players, combining energy, intelligence, shooting power and defensive work rate in a way few midfielders match. Darwin Núñez of Liverpool provides physical, direct goal-scoring threat.\n\nGroup H alongside Spain is the hardest possible draw, but Uruguay never give up. Valverde's quality and their collective spirit make them capable of upsetting any opponent on the right day.",
+  "Saudi Arabia":"Saudi Arabia — the Green Falcons — delivered the 2022 World Cup's single greatest shock: a 2-1 victory over Argentina. Salem Al-Dawsari's iconic winning curler in that match will be replayed forever. The influx of world-class players into the Saudi Pro League has raised domestic standards considerably.\n\nUnder Roberto Mancini, Saudi Arabia have developed tactical discipline and collective belief. Group H with Spain and Uruguay is demanding, but they approach every match with the confidence of a team that has beaten the world champions.",
+  "Cape Verde":"Cape Verde — the Blue Sharks — have earned their place in football's top table through sheer determination and the quality of players developed across the Cape Verdean diaspora in Portugal and France. For an archipelago of 560,000 people, their 2026 qualification is a remarkable achievement.\n\nRyan Mendes leads the most experienced contingent in a squad drawing on European-league quality. Group H with Spain and Uruguay is formidable, but Cape Verde are no longer a curiosity — they are a competitive footballing nation.",
+  "France":"France — Les Bleus — are two-time world champions (1998, 2018) and arrive in 2026 as one of the two or three clear favourites to lift the trophy. Their squad combines generational talent with Champions League winners and the most devastating attacker in world football.\n\nKylian Mbappé at 26 is at his absolute peak — Real Madrid's talisman who delivered a hat-trick in the 2022 World Cup final alone. His pace is genuinely incomprehensible to defenders; his finishing is clinical from any angle. Supporting him, Griezmann's creative intelligence and Tchouaméni's midfield authority give France extraordinary depth.\n\nGroup I — Senegal, Norway, Iraq — should be navigated smoothly. In the knockout rounds, Deschamps' tournament management and Mbappé's match-winning ability make France a nightmare draw for any opponent.",
+  "Senegal":"Senegal — Lions of Teranga — are Africa's 2021 AFCON champions and 2022 World Cup quarter-finalists. Under Aliou Cissé, they have become the continent's most consistently dangerous tournament side.\n\nSadio Mané's legacy for Senegal transcends statistics — he delivered the AFCON title that a nation had waited decades for, and his Liverpool years made him one of the world's best players. Ismaila Sarr provides pace and directness on the other flank, while Idrissa Gueye's midfield combativeness gives them a defensive foundation.\n\nGroup I alongside France is the toughest possible draw, but Senegal are not intimidated by anyone. Their belief, organisation and quality make an upset against Les Bleus possible. The Lions of Teranga will roar.",
+  "Norway":"Norway — Viking Warriors — return to the World Cup for the first time since 1998, and their comeback is headlined by the most prolific striker on the planet: Erling Haaland.\n\nAt 25, Haaland is at the absolute peak of his powers — Manchester City's goal machine who has shattered Premier League, Champions League and Bundesliga records with a consistency that defies belief. His combination of pace, power, aerial ability and composure in front of goal makes him the most feared striker in world football. Martin Ødegaard's Arsenal creativity gives Norway the platform to supply him.\n\nGroup I with France and Senegal is brutally tough. But no defence in the world wants to face Haaland for 90 minutes. Norway's entire tournament is built around getting the ball to their man — and when they do, goals will come.",
+  "Iraq":"Iraq — Lions of Mesopotamia — return to the World Cup for only the second time, their first appearance having been in 1986. Football has always been a source of unity and pride for Iraqis across decades of difficulty, and this qualification is a cause for enormous national celebration.\n\nAymen Hussein — whose prolific scoring in Asian qualification drove Iraq's campaign — is their most dangerous attacking threat. The squad is built on collective spirit and the Asian Championship experience that shaped their qualification.\n\nGroup I with France and Senegal is an enormous challenge, but Iraq's presence is itself a victory. Competing with courage and representing their nation with dignity is the immediate goal.",
+  "Argentina":"Argentina are the reigning world champions, having delivered the greatest World Cup final ever played in Qatar 2022 — a 4-2 penalty win over France after an extraordinary 3-3 draw. Lionel Messi, football's greatest player, enters what will certainly be his last World Cup at 38 years old.\n\nMessi's career defies description: eight Ballon d'Or awards, 10 La Liga titles, 4 Champions Leagues, Copa America, and now a World Cup. In Qatar he delivered the tournament of his life — 7 goals, 3 assists, and moments that reduced millions to tears. Every touch he makes in 2026 carries the weight of farewell.\n\nJulián Álvarez's clinical finishing, Rodrigo De Paul's combative midfield energy, and Scaloni's tactical intelligence make Argentina a complete side. Defending the title is the hardest thing in football. But with Messi, the extraordinary is always possible.",
+  "Austria":"Austria — Das Team — are one of Europe's most historically significant football nations, reaching the semi-finals in 1934 and 1954. Under Ralf Rangnick, modern Austria have become a well-organised, high-pressing side with genuine quality.\n\nDavid Alaba — Real Madrid's versatile defender and Champions League winner — brings elite experience and technical quality to Austria's backline. Marcel Sabitzer's energy and goal-scoring from midfield give them an attacking dimension.\n\nGroup J alongside Argentina is arguably the hardest possible draw. But Rangnick's pressing system can create problems for any team, and Austria are not here merely to participate.",
+  "Algeria":"Algeria — the Desert Foxes — are 1990 and 2019 AFCON champions with a famous World Cup history, including their legendary 2-1 victory over West Germany in 1982.\n\nRiyad Mahrez — the Manchester City and Champions League winner — is Algeria's most gifted player: a technically elegant, intelligent winger capable of creating and scoring from nothing. His Premier League success confirmed his world-class status.\n\nGroup J with Argentina is a brutal draw, but Algeria's quality and Mahrez's individual ability mean they can compete for progress in their remaining fixtures.",
+  "Jordan":"Jordan — the Nashama (Brave Ones) — are making their historic World Cup debut, having qualified for the first time in their football history. This is a moment of immense national pride.\n\nMousa Al-Taamari is Jordan's most exciting player — a winger whose pace and direct running were central to their qualification campaign and who will carry the hopes of a nation in their first World Cup.\n\nFacing Argentina in their debut is the ultimate challenge. But Jordan's presence is already the story of a lifetime, and competing against Messi on the World Cup stage is something their players will carry forever.",
+  "Portugal":"Portugal — A Seleção — are 2016 European champions and one of Europe's most technically gifted nations. Cristiano Ronaldo — arguably the most decorated individual in football history at 41 years old — makes what will certainly be his final appearance at a World Cup.\n\nFive Ballon d'Or awards, records in La Liga, Champions League and international football: Ronaldo's career spans a generation. Whether starting or contributing from the bench, his presence galvanises Portugal and electrifies every stadium. But Portugal's future belongs to Bernardo Silva, Bruno Fernandes, Rúben Dias and Vitinha — a generation capable of winning major trophies for decades.\n\nGroup K with Colombia and Uzbekistan is navigable. Portugal as a tournament team — with Ronaldo's experience and their collective quality — can reach the semi-finals and beyond.",
+  "Colombia":"Colombia — Los Cafeteros — are 2001 Copa América champions and one of South America's most technically gifted nations, known for producing creative, flamboyant players.\n\nJhon Durán — Aston Villa's powerful 21-year-old striker — has emerged as Colombia's new star, combining pace, physical power and clinical finishing in a way that has made him one of Europe's most exciting young forwards. Luis Díaz of Liverpool provides electric pace and creativity on the flank.\n\nGroup K with Portugal is a significant challenge, but Colombia's quality and Durán's potential make them a dangerous prospect in any round.",
+  "Uzbekistan":"Uzbekistan — the White Wolves — are making their historic World Cup debut, representing Central Asian football's growing ambition. Abdukodir Khusanov — the Lens defender who became one of Ligue 1's most impressive centre-backs — is their most celebrated export.\n\nTheir debut is a celebration of football's global reach and the sport's power to inspire nations across cultural boundaries. Competing in Group K with Portugal is an enormous but proud challenge.",
+  "DR Congo":"DR Congo — the Leopards — are one of Africa's most populous nations with a long football tradition, winning the Africa Cup of Nations in 1968 and 1974 as Zaire. Their players developed across Belgian and French leagues bring European-level quality.\n\nGroup K with Portugal and Colombia is challenging but not impossibly so. DR Congo's African pedigree, physical intensity and collective organisation can cause problems for any opponent on a good day.",
+  "England":"England — the Three Lions — won their only World Cup in 1966 and have been searching for a second ever since. Under Gareth Southgate they reached three consecutive tournament semi-finals or finals, and the 2026 squad may be the most talented assembled in 60 years.\n\nJude Bellingham is England's once-in-a-generation talent — a 21-year-old Real Madrid midfielder who has already won a Champions League and La Liga. His technical elegance, physical power, goal-scoring and leadership are extraordinary. Harry Kane (England's all-time top scorer), Bukayo Saka and Phil Foden surround Bellingham with genuine world-class support.\n\nEngland enter 2026 not as underdogs but as expected contenders. The talent is there. The only question is whether the mentality has finally caught up. Group L with Croatia is the opener — a repeat of their 2018 semi-final heartbreak. England need to make a statement.",
+  "Croatia":"Croatia — the Vatreni (Blazers) — are one of football's greatest overachievers: runners-up in 2018, third in 2022, consistently reaching the highest levels despite a population of just four million.\n\nLuka Modrić — Real Madrid's captain and 2018 Ballon d'Or winner — is 40 years old and making what will be his farewell World Cup. One of the finest midfielders in football history, his vision, passing and competitive intensity have inspired Croatia to punch far above their weight for two decades. One final performance at this level is all Croatia needs to remind the world why they treasure this footballer.\n\nGroup L with England is a tough opener, but Croatia have defeated England before and will be motivated to do so again.",
+  "Panama":"Panama — Los Canaleros — made their World Cup debut in 2018 and return to 2026 with the confidence of a nation that knows it belongs at this level. Adalberto Carrasquilla's midfield creativity gives Panama genuine technical quality.\n\nGroup L with England and Croatia is very demanding, but Panama represent CONCACAF with pride and compete hard in every match.",
+  "Ghana":"Ghana — the Black Stars — came within a penalty kick of becoming the first African nation in a World Cup semi-final in 2010. Their tradition of producing technically gifted, physically powerful players continues with the current generation.\n\nJordan Ayew leads the attack with veteran craft, while Abdul Fatawu Issahaku of Leicester City represents the next generation's potential. Group L with England and Croatia is demanding, but Ghana have always risen to the biggest occasions."
+};
+
+var selN = null;
+
+function flagUrl(cc){ return 'https://flagcdn.com/40x30/'+cc+'.png'; }
+function flagSm(cc){ return 'https://flagcdn.com/20x15/'+cc+'.png'; }
+function esc(t){ return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function showTab(id,btn){
+  document.querySelectorAll('.nb').forEach(function(b){b.classList.remove('on');});
+  document.querySelectorAll('.sec').forEach(function(s){s.classList.remove('on');});
+  btn.classList.add('on');
+  document.getElementById('sec-'+id).classList.add('on');
+}
+
+function buildGroups(){
+  var tm={host:'HOST',champ:'CHAMPION',def:'DEFENDING',debut:'DEBUT'};
+  var cm={host:'ttag t-host',champ:'ttag t-champ',def:'ttag t-def',debut:'ttag t-debut'};
+  var h='';
+  Object.keys(GD).forEach(function(L){
+    var g=GD[L];
+    h+='<div class="gc"><div class="gh">';
+    h+='<div class="gbadge" style="background:'+g.color+'">G'+L+'</div>';
+    h+='<div><div class="gtitle">Group '+L+'</div><div class="gflags">';
+    h+=g.teams.map(function(t){return '<img src="'+flagSm(t.cc)+'" style="width:18px;height:13px;object-fit:cover;border-radius:2px;vertical-align:middle;border:1px solid rgba(255,255,255,0.15);margin-right:2px;">';}).join('');
+    h+='</div></div></div>';
+    g.teams.forEach(function(t){
+      var tag=t.t?'<span class="'+cm[t.t]+'">'+tm[t.t]+'</span>':'';
+      h+='<div class="tr" onclick="openTeam('+JSON.stringify(t.n)+','+JSON.stringify(t.cc)+','+JSON.stringify(L)+')">';
+      h+='<img class="tflag" src="'+flagUrl(t.cc)+'" alt="'+t.n+'">';
+      h+='<div class="ti"><div class="tn">'+t.n+'</div><div class="tk">'+t.i+'</div></div>';
+      h+=tag+'<span class="chev">&#8250;</span></div>';
+    });
+    h+='</div>';
+  });
+  document.getElementById('gg').innerHTML=h;
+}
+
+function openTeam(name,cc,group){
+  document.getElementById('tlv').classList.add('hid');
+  document.getElementById('tdv').classList.add('on');
+  var profile=PD[name]||('Profile for '+name+' coming soon.');
+  document.getElementById('tdi').innerHTML=
+    '<div class="dh"><img class="dflag" src="'+flagUrl(cc)+'" alt="'+name+'">'
+    +'<div class="dname">'+name+'</div>'
+    +'<div class="dsub">Group '+group+' &middot; FIFA World Cup 2026</div></div>'
+    +'<div class="abox"><div class="abh"><div class="adot"></div><span class="abt">Team profile &amp; star player</span></div>'
+    +'<div class="abb"><div class="ao">'+esc(profile)+'</div></div></div>';
+}
+
+function goBack(){
+  document.getElementById('tlv').classList.remove('hid');
+  document.getElementById('tdv').classList.remove('on');
+}
+
+function buildMatches(){
+  var h='';
+  MD.forEach(function(m){
+    var score=(m.st==='FT')?(m.hs+' &ndash; '+m.as):'<span class="mvs">'+(m.time||'TBD')+'</span>';
+    var pc=m.st==='FT'?'spill s-ft':'spill s-up';
+    var label=m.st==='TODAY'?'<span class="spill" style="background:rgba(255,100,0,0.12);color:#ff7043;border:1px solid rgba(255,100,0,0.25)">TODAY</span>':'<span class="'+pc+'">'+m.st+'</span>';
+    h+='<div class="mc" onclick="toggleM('+m.id+')">';
+    h+='<div class="mct"><span class="mm">Group '+m.g+' &nbsp;&middot;&nbsp; '+m.date+' &nbsp;&middot;&nbsp; '+m.venue+'</span>'+label+'</div>';
+    h+='<div class="mteams">';
+    h+='<div class="mteam"><img class="mflag" src="'+flagUrl(m.hcc)+'" alt="'+m.h+'"><span class="mtn">'+m.h+'</span></div>';
+    h+='<div class="mscore">'+score+'</div>';
+    h+='<div class="mteam r"><img class="mflag" src="'+flagUrl(m.acc)+'" alt="'+m.a+'"><span class="mtn">'+m.a+'</span></div>';
+    h+='</div></div>';
+    h+='<div class="mexp" id="mx-'+m.id+'">';
+    if(m.st==='FT'){
+      h+='<div class="sg">';
+      h+='<div class="sbox"><div class="slbl">Man of the Match</div><div class="sval">&#11088; '+m.motm+'</div></div>';
+      h+='<div class="sbox"><div class="slbl">Goals</div><div class="sval" style="font-size:11px;line-height:1.5">'+m.goals+'</div></div>';
+      h+='<div class="sbox"><div class="slbl">Venue</div><div class="sval" style="font-size:11px">'+m.venue.split(',')[0]+'</div></div>';
+      h+='</div>';
+      h+='<div class="abox"><div class="abh"><div class="adot"></div><span class="abt">Match report</span></div>';
+      h+='<div class="abb"><div class="ao">'+esc(m.report)+'</div></div></div>';
+    }else{
+      h+='<div style="text-align:center;padding:18px;color:#555;font-size:13px">&#9200; Kicks off '+m.time+' on '+m.date+'</div>';
+    }
+    h+='</div>';
+  });
+  document.getElementById('mw').innerHTML=h;
+}
+
+function toggleM(id){
+  var p=document.getElementById('mx-'+id);
+  var isOpen=p.classList.contains('on');
+  document.querySelectorAll('.mexp').forEach(function(x){x.classList.remove('on');});
+  if(!isOpen) p.classList.add('on');
+}
+
+function buildNations(filter){
+  filter=(filter||'').toLowerCase();
+  var all=[];
+  Object.keys(GD).forEach(function(g){GD[g].teams.forEach(function(t){all.push(Object.assign({},t,{group:g}));});});
+  var h='';
+  all.forEach(function(t){
+    if(filter&&t.n.toLowerCase().indexOf(filter)===-1) return;
+    var sel=selN===t.n?' sel':'';
+    h+='<div class="nc'+sel+'" onclick="pickN('+JSON.stringify(t.n)+','+JSON.stringify(t.cc)+','+JSON.stringify(t.group)+')">';
+    h+='<img class="nflag" src="'+flagUrl(t.cc)+'" alt="'+t.n+'"><span class="nn">'+t.n+'</span></div>';
+  });
+  document.getElementById('ng').innerHTML=h;
+}
+
+function filterN(v){buildNations(v);}
+
+function pickN(name,cc,group){
+  selN=name;
+  buildNations(document.getElementById('csi').value);
+  var profile=PD[name]||('Football history for '+name+' coming soon.');
+  var box=document.getElementById('hbox');
+  box.classList.add('on');
+  box.innerHTML=
+    '<div class="hbtop"><img class="hbflag" src="'+flagUrl(cc)+'" alt="'+name+'">'
+    +'<div><div class="hbname">'+name+'</div><div class="hbsub">Group '+group+' &middot; FIFA World Cup 2026</div></div></div>'
+    +'<div class="abox"><div class="abh"><div class="adot"></div><span class="abt">Football history of '+name+'</span></div>'
+    +'<div class="abb"><div class="ao">'+esc(profile)+'</div></div></div>';
+  box.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+buildGroups();
+buildMatches();
+buildNations();
+</script>
+</body>
+</html>
