@@ -778,18 +778,21 @@ async function fetchLiveData() {
     buildStatsPage();
     buildMatches();
   } catch(e) {
-    setApiStatus('offline', 'API error — showing cached data (' + e.message + ')');
+    console.error('Live data error:', e);
+    setApiStatus('offline', 'API error: ' + (e && e.message ? e.message : String(e)));
   }
 }
 
 function processLiveMatches(apiMatches) {
+  if(!apiMatches || !apiMatches.length) return;
   apiMatches.forEach(function(am) {
-    var status = am.status; // SCHEDULED, LIVE, IN_PLAY, PAUSED, FINISHED, POSTPONED
+    if(!am || !am.homeTeam || !am.awayTeam) return;
+    var status = am.status;
     var hs = am.score && am.score.fullTime ? am.score.fullTime.home : null;
     var as_ = am.score && am.score.fullTime ? am.score.fullTime.away : null;
-    var homeTeam = am.homeTeam ? am.homeTeam.shortName || am.homeTeam.name : '';
-    var awayTeam = am.awayTeam ? am.awayTeam.shortName || am.awayTeam.name : '';
-    // Find matching entry in MD by team names
+    var homeTeam = am.homeTeam.shortName || am.homeTeam.name || '';
+    var awayTeam = am.awayTeam.shortName || am.awayTeam.name || '';
+    if(!homeTeam || !awayTeam) return;
     var existing = MD.find(function(m) {
       return normalize(m.h) === normalize(homeTeam) && normalize(m.a) === normalize(awayTeam);
     });
@@ -824,7 +827,7 @@ function processLiveMatches(apiMatches) {
   MD.sort(function(a,b){ return a.id - b.id; });
 }
 
-function normalize(s){ return (s||'').toLowerCase().replace(/[^a-z]/g,''); }
+function normalize(s){ if(!s) return ''; return String(s).toLowerCase().replace(/[^a-z]/g,''); }
 
 function teamCC(name) {
   var map = {
