@@ -165,8 +165,9 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-
   background:#0d0d1a;border-bottom:1px solid rgba(255,255,255,0.05);font-size:11px;color:#555;}
 .api-status-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
 .dot-live{background:#00c853;animation:pulse 2s infinite;}
-.dot-offline{background:#555;}
+.dot-offline{background:#e74c3c;}
 .dot-loading{background:#ffd700;animation:pulse 1s infinite;}
+.dot-warn{background:#e67e22;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
 .api-status-btn{margin-left:auto;font-size:11px;color:#444;cursor:pointer;
   background:none;border:none;font-family:inherit;}
@@ -763,23 +764,64 @@ function setApiStatus(state, msg) {
   txt.textContent = msg;
 }
 
+// Call on load to show static data is ready even before live fetch
+function setStaticReady() {
+  if (!liveDataLoaded) setApiStatus('warn', 'Static data loaded — connecting live...');
+}
+
 async function fetchLiveData() {
-  setApiStatus('loading','Fetching live data...');
+  if (!PROXY_URL || PROXY_URL.includes('YOUR_WORKER')) {
+    setApiStatus('offline', 'Worker not configured — static data shown');
+    return;
+  }
+
+  setApiStatus('loading', 'Fetching live scores...');
   try {
-    var res = await fetch(PROXY_URL + '/competitions/WC/matches?season=2026');
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    var data = await res.json();
-    processLiveMatches(data.matches || []);
-    setApiStatus('live', 'Live data — updated ' + new Date().toLocaleTimeString());
+    var base = PROXY_URL.replace(/\/+$/, '');
+    var endpoint = base + '/?t=' + Date.now();
+    var controller = new AbortController();
+    var timer = setTimeout(function(){ controller.abort(); }, 12000);
+    var res = await fetch(endpoint, { method: 'GET', cache: 'no-store', signal: controller.signal });
+    clearTimeout(timer);
+
+    var text = await res.text();
+    var data;
+    try { data = JSON.parse(text); } catch(pe) {
+      throw new Error('Bad JSON from worker');
+    }
+
+    // Log which source the worker used (visible in browser console)
+    if (data.source) console.info('[WC2026] Data source:', data.source, data.log || '');
+
+    // No matches from any source — show static data gracefully
+    if (!data.matches || data.matches.length === 0) {
+      setApiStatus('offline', data.message ? data.message.slice(0,60) : 'No live data — static scores shown');
+      buildMatches();
+      return;
+    }
+
+    // Process the normalised matches array
+    processLiveMatches(data.matches);
     liveDataLoaded = true;
-    // Refresh standings & stats after live data loads
+
+    var src = data.source ? ' via ' + data.source : '';
+    setApiStatus('live', 'Live' + src + ' — ' + new Date().toLocaleTimeString());
     renderStandings('std-groups', null);
     renderStandings('std-results', null);
     buildStatsPage();
     buildMatches();
+
   } catch(e) {
-    console.error('Live data error:', e);
-    setApiStatus('offline', 'API error: ' + (e && e.message ? e.message : String(e)));
+    var msg = e && e.message ? e.message : String(e);
+    if (msg.includes('abort') || msg.includes('AbortError')) {
+      setApiStatus('offline', 'Timeout — static data shown');
+    } else if (msg.includes('Failed to fetch') || msg.includes('NetworkError')) {
+      setApiStatus('offline', 'Worker unreachable — static data shown');
+    } else {
+      setApiStatus('offline', msg.slice(0, 60));
+    }
+    console.warn('[WC2026] fetch failed:', msg);
+    buildMatches();
   }
 }
 
@@ -808,7 +850,7 @@ function processLiveMatches(apiMatches) {
       var utcDate = am.utcDate ? new Date(am.utcDate) : null;
       var dateStr = utcDate ? utcDate.toLocaleDateString('en-GB',{month:'short',day:'numeric'}) : '';
       var timeStr = utcDate ? utcDate.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true})+' ET' : '';
-      var grp = am.group ? am.group.replace('GROUP_','') : '?';
+      var grp = (am.group && typeof am.group === 'string') ? am.group.replace('GROUP_','') : '?';
       MD.push({
         id: 1000 + (MD.length),
         g: grp,
@@ -1012,7 +1054,7 @@ function globalSearch(query) {
       : '<img src="'+flagUrl(r.hcc)+'" style="width:24px;height:17px;object-fit:cover;border-radius:3px;border:1px solid rgba(255,255,255,0.15)">';
     var action = '';
     if (r.type==='team')
-      action = 'showTab(\'history\',document.getElementById(\'nb-history\'));setTimeout(function(){pickN(\''+r.n.replace(/'/g,"\\'")+'\',"'+r.cc+'","'+r.grp+'");},80);';
+      action = 'showTab(\'history\',document.getElementById(\'nb-history\'));setTimeout(function(){pickN(\''+(r.n||'').replace(/'/g,"\\'")+'\',"'+r.cc+'","'+r.grp+'");},80);';
     else if (r.type==='match')
       action = 'showTab(\'results\',document.getElementById(\'nb-results\'));setTimeout(function(){toggleM('+r.id+');},80);';
     return '<div class="gsr-item" onclick="document.getElementById(\'gsearch\').value=\'\';document.getElementById(\'gsr\').classList.remove(\'show\');'+action+'">'
@@ -1026,9 +1068,13 @@ function globalSearch(query) {
 
 // Auto-fetch live data on load
 window.addEventListener('load', function() {
-  fetchLiveData();
-  // Refresh every 60 seconds during live matches
-  setInterval(fetchLiveData, 60000);
+  // Show static data is ready immediately
+  setTimeout(setStaticReady, 500);
+  // Try live fetch after 2s, retry every 2 minutes
+  setTimeout(function() {
+    fetchLiveData();
+    setInterval(fetchLiveData, 120000);
+  }, 2000);
 });
 
 buildGroups();
