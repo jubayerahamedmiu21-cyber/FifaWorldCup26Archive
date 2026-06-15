@@ -36,7 +36,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-
 .ti{flex:1;min-width:0;}
 .tn{font-size:13px;font-weight:600;color:#eee;}
 .tk{font-size:11px;color:#555;margin-top:1px;}
-.ttag{font-size:10px;padding:2px 8px;border-radius:8px;font-weight:600;flex-shrink:0;white-space:nowrap;}
+.ttag{font-size:10px;padding:2px 8px;border-radius:8px;font-weight:600;flex-shrink:0;white-space:nowrap;letter-spacing:0.01em;}
 .t-host{background:rgba(255,180,0,0.12);color:#ffb300;border:1px solid rgba(255,180,0,0.25);}
 .t-champ{background:rgba(0,200,80,0.1);color:#00c853;border:1px solid rgba(0,200,80,0.2);}
 .t-debut{background:rgba(100,180,255,0.1);color:#64b5f6;border:1px solid rgba(100,180,255,0.2);}
@@ -158,22 +158,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-
   animation:liveRing 1.2s ease-in-out infinite;}
 @keyframes liveRing{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.5);opacity:0.4;}}
 
-/* API SETTINGS MODAL */
-.api-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:1000;
-  display:flex;align-items:center;justify-content:center;padding:20px;}
-.api-modal{background:#13131f;border:1px solid rgba(255,215,0,0.25);border-radius:16px;
-  padding:28px;max-width:480px;width:100%;}
-.api-modal h3{font-size:16px;font-weight:700;color:#ffd700;margin-bottom:8px;}
-.api-modal p{font-size:13px;color:#888;line-height:1.6;margin-bottom:16px;}
-.api-input{width:100%;padding:10px 14px;background:#0a0a0f;border:1px solid rgba(255,255,255,0.15);
-  border-radius:10px;font-size:13px;color:#eee;font-family:monospace;outline:none;margin-bottom:12px;}
-.api-input:focus{border-color:rgba(255,215,0,0.4);}
-.api-btn{padding:10px 20px;border-radius:10px;border:none;cursor:pointer;font-size:13px;
-  font-family:inherit;font-weight:600;}
-.api-btn-save{background:#ffd700;color:#000;margin-right:8px;}
-.api-btn-save:hover{background:#ffec5c;}
-.api-btn-skip{background:rgba(255,255,255,0.07);color:#888;}
-.api-btn-skip:hover{background:rgba(255,255,255,0.12);color:#ccc;}
+/* Live data via Cloudflare Worker proxy */
 
 /* API STATUS BAR */
 .api-status{display:flex;align-items:center;gap:8px;padding:6px 20px;
@@ -268,23 +253,10 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-
 
 <div class="last-updated">Last updated: 14 June 2026 &nbsp;|&nbsp; Results verified from ESPN / CBS Sports / Yahoo Sports</div>
 
-<!-- API MODAL -->
-<div id="api-modal-overlay" class="api-modal-overlay" style="display:none">
-  <div class="api-modal">
-    <h3>&#128275; Connect Live Data</h3>
-    <p>Enter your football-data.org API key to enable automatic score updates, live standings and real-time results for all 104 World Cup 2026 matches.</p>
-    <input class="api-input" id="api-key-input" type="text" placeholder="Your API key (e.g. 04939cf2...)">
-    <div>
-      <button class="api-btn api-btn-save" onclick="saveApiKey()">Save &amp; Connect</button>
-      <button class="api-btn api-btn-skip" onclick="hideApiModal()">Skip for now</button>
-    </div>
-  </div>
-</div>
-
 <div class="api-status">
   <span class="api-status-dot dot-offline" id="api-dot"></span>
-  <span id="api-txt">Checking live data connection...</span>
-  <button class="api-status-btn" onclick="showApiModal()">&#9881; Configure API</button>
+  <span id="api-txt">Connecting to live data...</span>
+  
 </div>
 
 <div class="nav" style="flex-wrap:wrap;">
@@ -359,7 +331,7 @@ var GD = {
     {n:'Bosnia & Herz.',cc:'ba',i:'The Dragons'}
   ]},
   C:{color:'#27ae60',teams:[
-    {n:'Brazil',cc:'br',i:'Seleção',t:'champ'},
+    {n:'Brazil',cc:'br',i:'Seleção',t:'champ',tc:5},
     {n:'Morocco',cc:'ma',i:'Atlas Lions'},
     {n:'Scotland',cc:'gb-sct',i:'Tartan Army'},
     {n:'Haiti',cc:'ht',i:'Grenadiers'}
@@ -371,7 +343,7 @@ var GD = {
     {n:'Türkiye',cc:'tr',i:'Crescent Stars'}
   ]},
   E:{color:'#e67e22',teams:[
-    {n:'Germany',cc:'de',i:'Die Mannschaft',t:'champ'},
+    {n:'Germany',cc:'de',i:'Die Mannschaft',t:'champ',tc:4},
     {n:'Ecuador',cc:'ec',i:'La Tri'},
     {n:'Ivory Coast',cc:'ci',i:'The Elephants'},
     {n:'Curaçao',cc:'cw',i:'Blue-Whites',t:'debut'}
@@ -389,13 +361,13 @@ var GD = {
     {n:'New Zealand',cc:'nz',i:'All Whites'}
   ]},
   H:{color:'#8e44ad',teams:[
-    {n:'Spain',cc:'es',i:'La Roja',t:'champ'},
+    {n:'Spain',cc:'es',i:'La Roja',t:'champ',tc:1},
     {n:'Uruguay',cc:'uy',i:'La Celeste'},
     {n:'Saudi Arabia',cc:'sa',i:'Green Falcons'},
     {n:'Cape Verde',cc:'cv',i:'Blue Sharks'}
   ]},
   I:{color:'#2ecc71',teams:[
-    {n:'France',cc:'fr',i:'Les Bleus',t:'champ'},
+    {n:'France',cc:'fr',i:'Les Bleus',t:'champ',tc:2},
     {n:'Senegal',cc:'sn',i:'Lions of Teranga'},
     {n:'Norway',cc:'no',i:'Viking Warriors'},
     {n:'Iraq',cc:'iq',i:'Lions of Mesopotamia'}
@@ -413,7 +385,7 @@ var GD = {
     {n:'DR Congo',cc:'cd',i:'Leopards'}
   ]},
   L:{color:'#1abc9c',teams:[
-    {n:'England',cc:'gb-eng',i:'Three Lions',t:'champ'},
+    {n:'England',cc:'gb-eng',i:'Three Lions',t:'champ',tc:1},
     {n:'Croatia',cc:'hr',i:'Vatreni'},
     {n:'Panama',cc:'pa',i:'Los Canaleros'},
     {n:'Ghana',cc:'gh',i:'Black Stars'}
@@ -520,7 +492,7 @@ function showTab(id,btn){
 }
 
 function buildGroups(){
-  var tm={host:'HOST',champ:'CHAMPION',def:'DEFENDING',debut:'DEBUT'};
+  var tm={host:'HOST',champ:'CHAMPION',def:'DEFENDING CHAMPION',debut:'DEBUT'};
   var cm={host:'ttag t-host',champ:'ttag t-champ',def:'ttag t-def',debut:'ttag t-debut'};
   var h='';
   Object.keys(GD).forEach(function(L){
@@ -531,7 +503,8 @@ function buildGroups(){
     h+=g.teams.map(function(t){return '<img src="'+flagSm(t.cc)+'" style="width:18px;height:13px;object-fit:cover;border-radius:2px;vertical-align:middle;border:1px solid rgba(255,255,255,0.15);margin-right:2px;">';}).join('');
     h+='</div></div></div>';
     g.teams.forEach(function(t){
-      var tag=t.t?'<span class="'+cm[t.t]+'">'+tm[t.t]+'</span>':'';
+      var tagLabel = t.t==='champ' ? '&#127942; '+t.tc+'× CHAMPION' : (t.t==='def' ? '&#127942; DEFENDING' : (t.t==='host' ? 'HOST' : 'DEBUT'));
+      var tag=t.t?'<span class="'+cm[t.t]+'">'+tagLabel+'</span>':'';
       h+='<div class="tr" data-tn="'+esc(t.n)+'" data-tc="'+esc(t.cc)+'" data-tg="'+esc(L)+'">';
       h+='<img class="tflag" src="'+flagUrl(t.cc)+'" alt="'+esc(t.n)+'">';
       h+='<div class="ti"><div class="tn">'+esc(t.n)+'</div><div class="tk">'+esc(t.i)+'</div></div>';
@@ -779,8 +752,7 @@ var HD = {
 // ═══════════════════════════════════════════════════════════
 // LIVE DATA ENGINE
 // ═══════════════════════════════════════════════════════════
-var API_KEY = localStorage.getItem('fd_api_key') || '';
-var API_BASE = 'https://api.football-data.org/v4';
+var PROXY_URL = 'https://wc2026-livedata.jubayerahamedmiu21.workers.dev';
 var liveDataLoaded = false;
 
 function setApiStatus(state, msg) {
@@ -792,12 +764,9 @@ function setApiStatus(state, msg) {
 }
 
 async function fetchLiveData() {
-  if (!API_KEY) { setApiStatus('offline','No API key — showing cached data'); return; }
   setApiStatus('loading','Fetching live data...');
   try {
-    var res = await fetch(API_BASE + '/competitions/WC/matches?season=2026', {
-      headers: { 'X-Auth-Token': API_KEY }
-    });
+    var res = await fetch(PROXY_URL + '/competitions/WC/matches?season=2026');
     if (!res.ok) throw new Error('HTTP ' + res.status);
     var data = await res.json();
     processLiveMatches(data.matches || []);
@@ -1050,37 +1019,13 @@ function globalSearch(query) {
   res.classList.add('show');
 }
 
-// ═══════════════════════════════════════════════════════════
-// API KEY MODAL
-// ═══════════════════════════════════════════════════════════
-function showApiModal() {
-  var overlay = document.getElementById('api-modal-overlay');
-  if (overlay) overlay.style.display = 'flex';
-}
-function hideApiModal() {
-  var overlay = document.getElementById('api-modal-overlay');
-  if (overlay) overlay.style.display = 'none';
-}
-function saveApiKey() {
-  var key = document.getElementById('api-key-input').value.trim();
-  if (!key) { alert('Please enter your API key'); return; }
-  API_KEY = key;
-  localStorage.setItem('fd_api_key', key);
-  hideApiModal();
-  fetchLiveData();
-}
 
-// Auto-fetch live data on load if key exists
+
+// Auto-fetch live data on load
 window.addEventListener('load', function() {
-  if (API_KEY) {
-    fetchLiveData();
-    // Refresh every 60 seconds during live matches
-    setInterval(function() {
-      if (API_KEY) fetchLiveData();
-    }, 60000);
-  } else {
-    showApiModal();
-  }
+  fetchLiveData();
+  // Refresh every 60 seconds during live matches
+  setInterval(fetchLiveData, 60000);
 });
 
 buildGroups();
