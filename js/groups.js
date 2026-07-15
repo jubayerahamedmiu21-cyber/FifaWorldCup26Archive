@@ -13,8 +13,8 @@ function renderGroups(groups) {
       const rows = g.teams
         .map(
           (t) => `
-        <tr${t.advanced ? ' style="color:var(--gold)"' : ""}>
-          <td>${t.flag || ""} ${t.name}</td>
+        <tr${t.advanced ? ' class="advanced-row"' : ""}>
+          <td>${flagFor(t.name)} ${t.name}${t.advanced ? ' <span class="badge win">Advanced</span>' : ""}</td>
           <td>${t.played}</td>
           <td>${t.won}</td>
           <td>${t.drawn}</td>
@@ -31,7 +31,7 @@ function renderGroups(groups) {
           (m) => `
         <div class="match-card">
           <div>
-            <div class="match-teams">${m.home} ${m.homeScore ?? "–"} : ${m.awayScore ?? "–"} ${m.away}</div>
+            <div class="match-teams">${flagFor(m.home)} ${m.home} ${m.homeScore ?? "–"} : ${m.awayScore ?? "–"} ${m.away} ${flagFor(m.away)}</div>
             <div class="match-meta">${m.venue || ""}</div>
           </div>
           <div class="match-meta">${m.date || ""}</div>

@@ -1,0 +1,37 @@
+[
+  {
+    "type": "moment",
+    "tag": "Golden Boot Race",
+    "title": "Messi and Mbappé tied at 8 goals",
+    "description": "Through July 14, 2026, Lionel Messi (Argentina) and Kylian Mbappé (France) are tied for the tournament goal-scoring lead with 8 goals each — the closest Golden Boot race in recent World Cups.",
+    "date": "2026-07-14"
+  },
+  {
+    "type": "moment",
+    "tag": "Attendance Record",
+    "title": "Highest attendance in World Cup history",
+    "description": "Total attendance passed 3,605,357 on June 25, 2026, breaking the record set by the 1994 USA World Cup — driven by the expanded 48-team, three-nation format.",
+    "date": "2026-06-25"
+  },
+  {
+    "type": "moment",
+    "tag": "First of its Kind",
+    "title": "First 48-team, three-host World Cup",
+    "description": "2026 is the first FIFA World Cup with 48 teams (up from 32) and the first jointly hosted by three nations — Canada, Mexico, and the United States.",
+    "date": "2026-06-11"
+  },
+  {
+    "type": "goal",
+    "tag": "Group Stage",
+    "title": "Mexico open the tournament with a win",
+    "description": "Co-hosts Mexico beat South Africa 2-0 in the opening match at Estadio Azteca, Mexico City, on June 11, 2026 — the first match of the expanded tournament.",
+    "date": "2026-06-11"
+  },
+  {
+    "type": "moment",
+    "tag": "By the Numbers",
+    "title": "294 goals across 101 matches",
+    "description": "As of July 14, 2026, the tournament has produced 294 goals in 101 matches — an average of 2.91 goals per game.",
+    "date": "2026-07-14"
+  }
+]

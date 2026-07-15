@@ -6,6 +6,7 @@ function renderHeader(active, base) {
     ["pages/matches.html", "Matches"],
     ["pages/nations.html", "Nations"],
     ["pages/history.html", "History"],
+    ["pages/images.html", "Images"],
   ];
   const nav = links
     .map(([href, label]) => {

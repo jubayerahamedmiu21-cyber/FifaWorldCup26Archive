@@ -25,7 +25,7 @@ function renderNations(nations) {
     .map(
       (n) => `
     <div class="card">
-      <h3>${n.flag || ""} ${n.name}</h3>
+      <h3>${flagFor(n.name)} ${n.name}</h3>
       <div class="stat-row"><span>Confederation</span><span>${n.confederation || "—"}</span></div>
       <div class="stat-row"><span>World Cup titles</span><span>${n.worldCupTitles ?? 0}</span></div>
       <div class="stat-row"><span>Best finish</span><span>${n.bestFinish || "—"}</span></div>
