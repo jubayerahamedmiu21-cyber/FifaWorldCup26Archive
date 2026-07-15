@@ -8,6 +8,7 @@
 </head>
 <body>
   <script src="js/nav.js"></script>
+  <script src="js/flags.js"></script>
   <script>renderHeader("Home", "")</script>
 
   <main>
@@ -15,8 +16,13 @@
       <div class="hero-icon">🏆</div>
       <h1>FIFA World Cup 2026 Archive</h1>
       <p>48 nations. 12 groups. 3 host countries. A living record of every match, every group, every nation's story — and the full history of the World Cup since 1930.</p>
-      <div class="hero-flags">🇲🇽 🇨🇦 🇺🇸 ⚽ 🇧🇷 🇦🇷 🇫🇷 🇩🇪 🇯🇵 🇲🇦</div>
+      <div class="hero-flags" id="hero-flags"></div>
     </section>
+    <script>
+      document.getElementById("hero-flags").innerHTML =
+        ["Mexico","Canada","United States","Brazil","Argentina","France","Germany","Japan","Morocco","Spain"]
+          .map(flagFor).join(" ");
+    </script>
 
     <div class="card-grid">
       <a class="card fade-in d1" href="pages/groups.html">
