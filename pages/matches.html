@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matches — FIFA World Cup 2026 Archive</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <script src="../js/nav.js"></script>
+  <script src="../js/flags.js"></script>
+  <script>renderHeader("Matches", "../")</script>
+
+  <main>
+    <section class="hero" style="padding:1.5rem 1rem;">
+      <h1>Matches</h1>
+      <p>Every match of the tournament, group stage through the final.</p>
+    </section>
+
+    <div class="filter-bar">
+      <select id="stage-filter"><option value="">All stages</option></select>
+      <input id="team-search" type="text" placeholder="Search team…" />
+    </div>
+    <p class="match-meta" style="margin-bottom:1rem;">Tap a match to expand detailed stats where available.</p>
+
+    <div id="matches-container">Loading matches…</div>
+  </main>
+
+  <script>renderFooter()</script>
+  <script src="../js/matches.js"></script>
+</body>
+</html>

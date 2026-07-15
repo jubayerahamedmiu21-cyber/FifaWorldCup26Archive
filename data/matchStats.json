@@ -1,0 +1,602 @@
+[
+  {
+    "stage": "Group A", "date": "2026-06-11", "home": "Mexico", "away": "South Africa",
+    "stats": {
+      "possession": {"home": 60, "away": 40},
+      "totalShots": {"home": 16, "away": 3},
+      "shotsOnTarget": {"home": 4, "away": 2},
+      "corners": {"home": 3, "away": 1},
+      "fouls": {"home": 12, "away": 11},
+      "yellowCards": {"home": 1, "away": 2},
+      "redCards": {"home": 1, "away": 2}
+    },
+    "source": "Yahoo Sports box score + ESPN/search summaries of the match"
+  },
+  {
+    "stage": "Group A", "date": "2026-06-24", "home": "Czech Republic", "away": "Mexico",
+    "stats": {
+      "totalShots": {"home": 13, "away": 11},
+      "shotsOnTarget": {"home": 1, "away": 5}
+    },
+    "source": "ESPN/search summary of match report"
+  },
+  {
+    "stage": "Group A", "date": "2026-06-24", "home": "South Africa", "away": "South Korea",
+    "stats": {
+      "possession": {"home": 31.6, "away": 68.4},
+      "totalShots": {"home": 13, "away": 8},
+      "shotsOnTarget": {"home": 4, "away": 3}
+    },
+    "source": "ESPN/search summary of match report (South Korea possession stated as 68.4%)"
+  },
+
+  {
+    "stage": "Group B", "date": "2026-06-13", "home": "Qatar", "away": "Switzerland",
+    "stats": {
+      "totalShots": {"home": 6, "away": 26},
+      "shotsOnTarget": {"home": 3, "away": 7}
+    },
+    "source": "Match report summary (search snippet)"
+  },
+  {
+    "stage": "Group B", "date": "2026-06-18", "home": "Canada", "away": "Qatar",
+    "stats": {
+      "possession": {"home": 65, "away": 35},
+      "totalShots": {"home": 32, "away": 2},
+      "shotsOnTarget": {"home": 10, "away": 0}
+    },
+    "source": "Match report summary (search snippet)"
+  },
+  {
+    "stage": "Group B", "date": "2026-06-24", "home": "Switzerland", "away": "Canada",
+    "stats": {
+      "possession": {"home": 48, "away": 40},
+      "totalShots": {"home": 6, "away": 13},
+      "shotsOnTarget": {"home": 4, "away": 7}
+    },
+    "source": "Match report summary (search snippet); possession does not sum to 100 (remainder contested)"
+  },
+
+  {
+    "stage": "Group C", "date": "2026-06-13", "home": "Brazil", "away": "Morocco",
+    "stats": {
+      "possession": {"home": 51, "away": 49},
+      "totalShots": {"home": 12, "away": 14},
+      "shotsOnTarget": {"home": 5, "away": 3}
+    },
+    "source": "ESPN team stats summary"
+  },
+  {
+    "stage": "Group C", "date": "2026-06-13", "home": "Haiti", "away": "Scotland",
+    "stats": {
+      "possession": {"home": 50, "away": 50},
+      "totalShots": {"home": 15, "away": 9},
+      "shotsOnTarget": {"home": 2, "away": 2}
+    },
+    "source": "Yahoo Sports box score summary"
+  },
+  {
+    "stage": "Group C", "date": "2026-06-19", "home": "Scotland", "away": "Morocco",
+    "stats": {
+      "possession": {"home": 39, "away": 54},
+      "totalShots": {"home": 6, "away": 12},
+      "shotsOnTarget": {"home": 0, "away": 2}
+    },
+    "source": "Match report summary; remaining possession % listed as contested"
+  },
+  {
+    "stage": "Group C", "date": "2026-06-19", "home": "Brazil", "away": "Haiti",
+    "stats": {
+      "possession": {"home": 49, "away": 43},
+      "totalShots": {"home": 7, "away": 7},
+      "shotsOnTarget": {"home": 4, "away": 3}
+    },
+    "source": "FIFA-sourced match report summary; remaining 8% possession contested"
+  },
+  {
+    "stage": "Group C", "date": "2026-06-24", "home": "Scotland", "away": "Brazil",
+    "stats": {
+      "possession": {"home": 46, "away": 54},
+      "shotsOnTarget": {"home": 5, "away": 9},
+      "passes": {"home": 450, "away": 564},
+      "passAccuracy": {"home": 90, "away": 93}
+    },
+    "source": "Opta Analyst / ESPN team stats summary"
+  },
+  {
+    "stage": "Group C", "date": "2026-06-24", "home": "Morocco", "away": "Haiti",
+    "stats": {
+      "possession": {"home": 69, "away": 31},
+      "totalShots": {"home": 22, "away": 9},
+      "shotsOnTarget": {"home": 11, "away": 2}
+    },
+    "source": "Opta Analyst match report summary"
+  },
+
+  {
+    "stage": "Group D", "date": "2026-06-12", "home": "United States", "away": "Paraguay",
+    "stats": {
+      "possession": {"home": 65, "away": 35}
+    },
+    "source": "Match report summary (search snippet)"
+  },
+  {
+    "stage": "Group D", "date": "2026-06-13", "home": "Australia", "away": "Turkey",
+    "stats": {
+      "possession": {"home": 28, "away": 72},
+      "totalShots": {"home": 9, "away": 30},
+      "shotsOnTarget": {"home": 4, "away": 8},
+      "passes": {"home": 201, "away": 635},
+      "passAccuracy": {"home": 74, "away": 90}
+    },
+    "source": "Opta Analyst match report summary"
+  },
+  {
+    "stage": "Group D", "date": "2026-06-19", "home": "United States", "away": "Australia",
+    "stats": {
+      "possession": {"home": 70, "away": 30},
+      "passAccuracy": {"home": 90}
+    },
+    "source": "Yahoo Sports live-update summary (partial stats only)"
+  },
+  {
+    "stage": "Group D", "date": "2026-06-19", "home": "Turkey", "away": "Paraguay",
+    "stats": {
+      "possession": {"home": 78.6, "away": 21.4},
+      "totalShots": {"home": 32, "away": 7},
+      "shotsOnTarget": {"home": 5, "away": 2},
+      "redCards": {"home": 0, "away": 1}
+    },
+    "source": "Opta Analyst / match report summary"
+  },
+  {
+    "stage": "Group D", "date": "2026-06-25", "home": "Paraguay", "away": "Australia",
+    "stats": {
+      "possession": {"home": 42, "away": 46},
+      "totalShots": {"home": 7, "away": 12},
+      "shotsOnTarget": {"home": 2, "away": 5}
+    },
+    "source": "Match report summary; remaining 12% possession contested"
+  },
+
+  {
+    "stage": "Group E", "date": "2026-06-14", "home": "Germany", "away": "Curaçao",
+    "stats": {
+      "possession": {"home": 57, "away": 35},
+      "totalShots": {"home": 26, "away": 8},
+      "shotsOnTarget": {"home": 12, "away": 2}
+    },
+    "source": "Yahoo Sports box score summary; remaining 9% possession contested"
+  },
+  {
+    "stage": "Group E", "date": "2026-06-20", "home": "Ecuador", "away": "Curaçao",
+    "stats": {
+      "possession": {"home": 75},
+      "totalShots": {"home": 26, "away": 10},
+      "shotsOnTarget": {"home": 15}
+    },
+    "source": "Match report summary (search snippet); Curaçao shots-on-target and possession share not stated"
+  },
+
+  {
+    "stage": "Group F", "date": "2026-06-14", "home": "Netherlands", "away": "Japan",
+    "stats": {
+      "possession": {"home": 54, "away": 37},
+      "totalShots": {"home": 10, "away": 9},
+      "shotsOnTarget": {"home": 6, "away": 2}
+    },
+    "source": "Match report summary; remaining 9% possession contested"
+  },
+  {
+    "stage": "Group F", "date": "2026-06-14", "home": "Sweden", "away": "Tunisia",
+    "stats": {
+      "possession": {"home": 54, "away": 46},
+      "totalShots": {"home": 5, "away": 3},
+      "shotsOnTarget": {"home": 3, "away": 1},
+      "passAccuracy": {"home": 82, "away": 75}
+    },
+    "source": "Opta Analyst match report summary"
+  },
+  {
+    "stage": "Group F", "date": "2026-06-20", "home": "Netherlands", "away": "Sweden",
+    "stats": {
+      "possession": {"home": 50.9, "away": 49.1},
+      "totalShots": {"home": 10, "away": 16},
+      "shotsOnTarget": {"home": 7, "away": 8},
+      "corners": {"home": 2, "away": 5},
+      "yellowCards": {"home": 0, "away": 3}
+    },
+    "source": "Match report summary (search snippet)"
+  },
+  {
+    "stage": "Group F", "date": "2026-06-20", "home": "Tunisia", "away": "Japan",
+    "stats": {
+      "possession": {"home": 36, "away": 55},
+      "totalShots": {"home": 2, "away": 11},
+      "shotsOnTarget": {"home": 0, "away": 5}
+    },
+    "source": "Match report summary; remaining 9% possession contested"
+  },
+  {
+    "stage": "Group F", "date": "2026-06-25", "home": "Japan", "away": "Sweden",
+    "stats": {
+      "possession": {"home": 44, "away": 44},
+      "totalShots": {"home": 8, "away": 11},
+      "shotsOnTarget": {"home": 3, "away": 5}
+    },
+    "source": "Match report summary; remaining 12% possession contested"
+  },
+  {
+    "stage": "Group F", "date": "2026-06-25", "home": "Tunisia", "away": "Netherlands",
+    "stats": {
+      "possession": {"home": 27, "away": 64},
+      "totalShots": {"home": 10, "away": 20},
+      "shotsOnTarget": {"home": 4, "away": 7}
+    },
+    "source": "Match report summary (search snippet)"
+  },
+
+  {
+    "stage": "Group G", "date": "2026-06-15", "home": "Belgium", "away": "Egypt",
+    "stats": {
+      "possession": {"home": 53, "away": 47},
+      "totalShots": {"home": 15, "away": 14},
+      "shotsOnTarget": {"home": 3, "away": 3}
+    },
+    "source": "Match report summary (search snippet)"
+  },
+  {
+    "stage": "Group G", "date": "2026-06-21", "home": "Belgium", "away": "Iran",
+    "stats": {
+      "possession": {"home": 70, "away": 30},
+      "totalShots": {"home": 23, "away": 7},
+      "shotsOnTarget": {"home": 7, "away": 3},
+      "passes": {"home": 622}
+    },
+    "source": "Match report summary (search snippet)"
+  },
+  {
+    "stage": "Group G", "date": "2026-06-21", "home": "New Zealand", "away": "Egypt",
+    "stats": {
+      "possession": {"home": 39, "away": 50},
+      "totalShots": {"home": 11, "away": 19},
+      "shotsOnTarget": {"home": 5, "away": 7}
+    },
+    "source": "Match report summary; remaining 11% possession contested"
+  },
+  {
+    "stage": "Group G", "date": "2026-06-26", "home": "Egypt", "away": "Iran",
+    "stats": {
+      "possession": {"home": 53, "away": 36},
+      "totalShots": {"home": 15, "away": 13},
+      "shotsOnTarget": {"home": 3, "away": 3}
+    },
+    "source": "Match report summary; remaining 11% possession contested"
+  },
+  {
+    "stage": "Group G", "date": "2026-06-26", "home": "New Zealand", "away": "Belgium",
+    "stats": {
+      "possession": {"home": 46, "away": 54},
+      "totalShots": {"home": 6, "away": 35},
+      "shotsOnTarget": {"home": 2, "away": 10},
+      "passes": {"home": 369, "away": 462},
+      "passAccuracy": {"home": 85, "away": 88}
+    },
+    "source": "Opta Analyst match report summary"
+  },
+
+  {
+    "stage": "Group H", "date": "2026-06-15", "home": "Spain", "away": "Cape Verde",
+    "stats": {
+      "possession": {"home": 74, "away": 26},
+      "totalShots": {"home": 27, "away": 6},
+      "shotsOnTarget": {"home": 7},
+      "passAccuracy": {"home": 93, "away": 75}
+    },
+    "source": "Match report summary (search snippet)"
+  },
+  {
+    "stage": "Group H", "date": "2026-06-15", "home": "Saudi Arabia", "away": "Uruguay",
+    "stats": {
+      "possession": {"home": 33, "away": 67}
+    },
+    "source": "Match report summary (search snippet); shot counts not clearly attributed"
+  },
+  {
+    "stage": "Group H", "date": "2026-06-21", "home": "Spain", "away": "Saudi Arabia",
+    "stats": {
+      "possession": {"home": 67, "away": 33},
+      "totalShots": {"home": 22, "away": 3},
+      "shotsOnTarget": {"home": 8, "away": 1}
+    },
+    "source": "Match report summary (search snippet)"
+  },
+  {
+    "stage": "Group H", "date": "2026-06-21", "home": "Uruguay", "away": "Cape Verde",
+    "stats": {
+      "possession": {"home": 54, "away": 33},
+      "totalShots": {"home": 17, "away": 12},
+      "shotsOnTarget": {"home": 2, "away": 4}
+    },
+    "source": "Opta Analyst match report summary; remaining 13% possession contested"
+  },
+  {
+    "stage": "Group H", "date": "2026-06-26", "home": "Cape Verde", "away": "Saudi Arabia",
+    "stats": {
+      "possession": {"home": 47, "away": 41},
+      "totalShots": {"home": 15, "away": 7},
+      "shotsOnTarget": {"home": 2, "away": 3}
+    },
+    "source": "Match report summary; remaining possession contested"
+  },
+
+  {
+    "stage": "Group I", "date": "2026-06-16", "home": "France", "away": "Senegal",
+    "stats": {
+      "possession": {"home": 49, "away": 44},
+      "totalShots": {"home": 11, "away": 6},
+      "shotsOnTarget": {"home": 8, "away": 2}
+    },
+    "source": "Match report summary; remaining possession contested"
+  },
+  {
+    "stage": "Group I", "date": "2026-06-16", "home": "Iraq", "away": "Norway",
+    "stats": {
+      "possession": {"home": 34, "away": 57},
+      "totalShots": {"home": 11, "away": 12},
+      "shotsOnTarget": {"home": 1, "away": 5}
+    },
+    "source": "Match report summary; remaining possession contested"
+  },
+  {
+    "stage": "Group I", "date": "2026-06-22", "home": "France", "away": "Iraq",
+    "stats": {
+      "possession": {"home": 56, "away": 44},
+      "totalShots": {"home": 19, "away": 4},
+      "shotsOnTarget": {"home": 5, "away": 0},
+      "passAccuracy": {"home": 92, "away": 86}
+    },
+    "source": "Match report summary (search snippet)"
+  },
+  {
+    "stage": "Group I", "date": "2026-06-22", "home": "Norway", "away": "Senegal",
+    "stats": {
+      "possession": {"home": 42, "away": 58},
+      "totalShots": {"home": 13, "away": 16},
+      "shotsOnTarget": {"home": 7, "away": 4},
+      "passes": {"home": 282, "away": 430},
+      "passAccuracy": {"home": 80, "away": 88}
+    },
+    "source": "Match report summary (search snippet)"
+  },
+  {
+    "stage": "Group I", "date": "2026-06-26", "home": "Norway", "away": "France",
+    "stats": {
+      "possession": {"home": 43, "away": 57},
+      "totalShots": {"home": 10, "away": 18},
+      "shotsOnTarget": {"home": 4, "away": 9}
+    },
+    "source": "Match report summary (search snippet)"
+  },
+  {
+    "stage": "Group I", "date": "2026-06-26", "home": "Senegal", "away": "Iraq",
+    "stats": {
+      "possession": {"home": 58, "away": 30},
+      "totalShots": {"home": 27, "away": 6},
+      "shotsOnTarget": {"home": 11, "away": 1},
+      "redCards": {"home": 0, "away": 1}
+    },
+    "source": "Match report summary; remaining possession contested"
+  },
+
+  {
+    "stage": "Group J", "date": "2026-06-16", "home": "Argentina", "away": "Algeria",
+    "stats": {
+      "possession": {"home": 48, "away": 52},
+      "totalShots": {"home": 9, "away": 6},
+      "shotsOnTarget": {"home": 6, "away": 0}
+    },
+    "source": "Match report summary (search snippet)"
+  },
+  {
+    "stage": "Group J", "date": "2026-06-16", "home": "Austria", "away": "Jordan",
+    "stats": {
+      "possession": {"home": 53, "away": 33},
+      "totalShots": {"home": 10, "away": 11},
+      "shotsOnTarget": {"home": 4, "away": 4}
+    },
+    "source": "Match report summary; remaining 14% possession contested"
+  },
+  {
+    "stage": "Group J", "date": "2026-06-22", "home": "Argentina", "away": "Austria",
+    "stats": {
+      "possession": {"home": 48, "away": 43},
+      "totalShots": {"home": 12, "away": 6},
+      "shotsOnTarget": {"home": 5, "away": 1}
+    },
+    "source": "Match report summary; remaining 9% possession contested"
+  },
+  {
+    "stage": "Group J", "date": "2026-06-22", "home": "Jordan", "away": "Algeria",
+    "stats": {
+      "corners": {"home": 5, "away": 10}
+    },
+    "source": "Match report summary (search snippet); possession/shots not clearly split by team"
+  },
+  {
+    "stage": "Group J", "date": "2026-06-27", "home": "Algeria", "away": "Austria",
+    "stats": {
+      "possession": {"home": 60, "away": 33},
+      "totalShots": {"home": 12, "away": 10},
+      "shotsOnTarget": {"home": 5, "away": 3}
+    },
+    "source": "Match report summary; remaining possession contested"
+  },
+  {
+    "stage": "Group J", "date": "2026-06-27", "home": "Jordan", "away": "Argentina",
+    "stats": {
+      "possession": {"home": 27, "away": 67},
+      "totalShots": {"home": 5, "away": 13},
+      "shotsOnTarget": {"home": 1, "away": 4}
+    },
+    "source": "Match report summary; remaining 6% possession contested"
+  },
+
+  {
+    "stage": "Group K", "date": "2026-06-17", "home": "Portugal", "away": "DR Congo",
+    "stats": {
+      "possession": {"home": 68},
+      "totalShots": {"home": 7, "away": 8},
+      "shotsOnTarget": {"home": 1, "away": 2}
+    },
+    "source": "Opta Analyst match report summary"
+  },
+  {
+    "stage": "Group K", "date": "2026-06-17", "home": "Uzbekistan", "away": "Colombia",
+    "stats": {
+      "possession": {"home": 33, "away": 56},
+      "totalShots": {"home": 8, "away": 15},
+      "shotsOnTarget": {"home": 2, "away": 4}
+    },
+    "source": "Match report summary; remaining 11% possession contested"
+  },
+  {
+    "stage": "Group K", "date": "2026-06-23", "home": "Portugal", "away": "Uzbekistan",
+    "stats": {
+      "possession": {"home": 66, "away": 34},
+      "totalShots": {"home": 17, "away": 7},
+      "shotsOnTarget": {"home": 9, "away": 2}
+    },
+    "source": "Match report summary (search snippet)"
+  },
+  {
+    "stage": "Group K", "date": "2026-06-23", "home": "Colombia", "away": "DR Congo",
+    "stats": {
+      "possession": {"home": 64, "away": 36},
+      "totalShots": {"home": 20, "away": 7},
+      "shotsOnTarget": {"home": 9, "away": 1},
+      "corners": {"home": 5, "away": 4},
+      "passes": {"home": 473, "away": 226}
+    },
+    "source": "Match report summary (search snippet)"
+  },
+  {
+    "stage": "Group K", "date": "2026-06-27", "home": "Colombia", "away": "Portugal",
+    "stats": {
+      "possession": {"home": 55, "away": 45}
+    },
+    "source": "Opta Analyst match report summary (\"Colombia kept Portugal to 45% possession\"); shot counts not split by team"
+  },
+  {
+    "stage": "Group K", "date": "2026-06-27", "home": "DR Congo", "away": "Uzbekistan",
+    "stats": {
+      "possession": {"home": 53, "away": 36},
+      "totalShots": {"home": 19, "away": 3},
+      "shotsOnTarget": {"home": 5, "away": 1}
+    },
+    "source": "Opta Analyst match report summary; remaining 11% possession contested"
+  },
+
+  {
+    "stage": "Group L", "date": "2026-06-17", "home": "England", "away": "Croatia",
+    "stats": {
+      "possession": {"home": 48, "away": 43},
+      "totalShots": {"home": 22, "away": 10},
+      "shotsOnTarget": {"home": 11, "away": 5}
+    },
+    "source": "Match report summary (search snippet)"
+  },
+  {
+    "stage": "Group L", "date": "2026-06-17", "home": "Ghana", "away": "Panama",
+    "stats": {
+      "possession": {"home": 35, "away": 55},
+      "totalShots": {"home": 7, "away": 11},
+      "shotsOnTarget": {"home": 2, "away": 4}
+    },
+    "source": "Match report summary; remaining 10% possession contested"
+  },
+  {
+    "stage": "Group L", "date": "2026-06-23", "home": "England", "away": "Ghana",
+    "stats": {
+      "possession": {"home": 78.8, "away": 21.2},
+      "totalShots": {"home": 19, "away": 2},
+      "shotsOnTarget": {"home": 3, "away": 0}
+    },
+    "source": "Opta Analyst match report summary"
+  },
+  {
+    "stage": "Group L", "date": "2026-06-23", "home": "Panama", "away": "Croatia",
+    "stats": {
+      "possession": {"home": 42, "away": 58},
+      "totalShots": {"home": 8, "away": 6},
+      "shotsOnTarget": {"home": 1, "away": 2},
+      "fouls": {"home": 19, "away": 12}
+    },
+    "source": "Opta Analyst match report summary"
+  },
+  {
+    "stage": "Group L", "date": "2026-06-27", "home": "Panama", "away": "England",
+    "stats": {
+      "possession": {"home": 33, "away": 57},
+      "totalShots": {"home": 13, "away": 17},
+      "shotsOnTarget": {"home": 2, "away": 6}
+    },
+    "source": "Match report summary; remaining 10% possession contested"
+  },
+  {
+    "stage": "Group L", "date": "2026-06-27", "home": "Croatia", "away": "Ghana",
+    "stats": {
+      "possession": {"home": 50, "away": 43},
+      "totalShots": {"home": 8, "away": 6},
+      "shotsOnTarget": {"home": 4, "away": 1},
+      "passes": {"home": 307, "away": 264}
+    },
+    "source": "Match report summary; remaining 7% possession contested"
+  },
+
+  {
+    "stage": "Round of 32", "date": "2026-06-28", "home": "South Africa", "away": "Canada",
+    "stats": {
+      "possession": {"home": 55, "away": 35},
+      "totalShots": {"home": 6, "away": 12},
+      "shotsOnTarget": {"home": 1, "away": 7}
+    },
+    "source": "Match report summary; remaining possession contested"
+  },
+  {
+    "stage": "Round of 32", "date": "2026-06-29", "home": "Brazil", "away": "Japan",
+    "stats": {
+      "possession": {"home": 69, "away": 31},
+      "shotsOnTarget": {"home": 7, "away": 2},
+      "passAccuracy": {"home": 92, "away": 83}
+    },
+    "source": "ESPN team stats summary"
+  },
+  {
+    "stage": "Round of 32", "date": "2026-06-29", "home": "Germany", "away": "Paraguay",
+    "stats": {
+      "possession": {"home": 65, "away": 35},
+      "totalShots": {"home": 21, "away": 7},
+      "shotsOnTarget": {"home": 6, "away": 3}
+    },
+    "source": "Match report summary (search snippet); note: matches.json omits the score for this match but stats were reported alongside the 1-1 (Paraguay won 4-3 on penalties) result"
+  },
+  {
+    "stage": "Round of 32", "date": "2026-06-29", "home": "Netherlands", "away": "Morocco",
+    "stats": {
+      "possession": {"home": 31, "away": 61},
+      "totalShots": {"home": 6, "away": 11},
+      "shotsOnTarget": {"home": 2, "away": 5}
+    },
+    "source": "FIFA match centre stats via search summary; note: matches.json omits the score for this match but stats were reported alongside the 1-1 (Morocco won 3-2 on penalties) result; remaining 8% possession contested"
+  },
+  {
+    "stage": "Round of 32", "date": "2026-06-30", "home": "France", "away": "Sweden",
+    "stats": {
+      "possession": {"home": 53, "away": 38},
+      "totalShots": {"home": 25, "away": 8},
+      "shotsOnTarget": {"home": 12, "away": 3}
+    },
+    "source": "Match report summary; remaining 9% possession contested"
+  }
+]

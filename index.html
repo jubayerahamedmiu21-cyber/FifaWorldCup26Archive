@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FIFA World Cup 2026 Archive</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <script src="js/nav.js"></script>
+  <script src="js/flags.js"></script>
+  <script>renderHeader("Home", "")</script>
+
+  <main>
+    <section class="hero-banner fade-in">
+      <div class="hero-icon">🏆</div>
+      <h1>FIFA World Cup 2026 Archive</h1>
+      <p>48 nations. 12 groups. 3 host countries. A living record of every match, every group, every nation's story — and the full history of the World Cup since 1930.</p>
+      <div class="hero-flags" id="hero-flags"></div>
+    </section>
+    <script>
+      document.getElementById("hero-flags").innerHTML =
+        ["Mexico","Canada","United States","Brazil","Argentina","France","Germany","Japan","Morocco","Spain"]
+          .map(flagFor).join(" ");
+    </script>
+
+    <div class="card-grid">
+      <a class="card fade-in d1" href="pages/groups.html">
+        <span class="card-icon">🗂️</span>
+        <h3>Groups</h3>
+        <p>All 12 groups (A–L), standings, and results from the group stage.</p>
+      </a>
+      <a class="card fade-in d2" href="pages/matches.html">
+        <span class="card-icon">⚽</span>
+        <h3>Matches</h3>
+        <p>Every match of the tournament — group stage through the final — with detailed stats.</p>
+      </a>
+      <a class="card fade-in d3" href="pages/nations.html">
+        <span class="card-icon">🏳️</span>
+        <h3>Nations</h3>
+        <p>Each participating nation's World Cup history, honours, and 2026 campaign.</p>
+      </a>
+      <a class="card fade-in d4" href="pages/history.html">
+        <span class="card-icon">📜</span>
+        <h3>History</h3>
+        <p>Every World Cup since 1930 — hosts, winners, and defining moments.</p>
+      </a>
+      <a class="card fade-in d4" href="pages/images.html">
+        <span class="card-icon">📸</span>
+        <h3>Key Moments</h3>
+        <p>Goals, cards, and controversial moments from the tournament so far.</p>
+      </a>
+    </div>
+
+    <h2 class="section-title">About this archive</h2>
+    <p style="color:var(--text-dim); max-width:760px;">
+      This site records the 2026 FIFA World Cup — the first held across three countries (Canada, Mexico, United States)
+      and the first with 48 teams — as it happens, and preserves it for the future. Data lives in plain JSON files
+      in this repo so it can be corrected, extended, and archived long after the final whistle.
+    </p>
+  </main>
+
+  <script>renderFooter()</script>
+</body>
+</html>
