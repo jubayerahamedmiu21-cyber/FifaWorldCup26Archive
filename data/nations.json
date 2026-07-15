@@ -1,0 +1,61 @@
+[
+{"name":"Mexico","flag":"🇲🇽","confederation":"CONCACAF","worldCupTitles":0,"bestFinish":"Quarterfinals (1970, 1986)","appearances":18,"notablePlayers":["Hirving Lozano","Edson Álvarez","Santiago Giménez"],"2026Result":null},
+{"name":"South Africa","flag":"🇿🇦","confederation":"CAF","worldCupTitles":0,"bestFinish":"Group Stage (1998, 2002, 2010)","appearances":4,"notablePlayers":["Percy Tau","Ronwen Williams"],"2026Result":"Round of 32"},
+{"name":"South Korea","flag":"🇰🇷","confederation":"AFC","worldCupTitles":0,"bestFinish":"Fourth place (2002)","appearances":11,"notablePlayers":["Son Heung-min","Kim Min-jae"],"2026Result":"Group Stage"},
+{"name":"Czech Republic","flag":"🇨🇿","confederation":"UEFA","worldCupTitles":0,"bestFinish":"Runner-up as Czechoslovakia (1934, 1962)","appearances":10,"notablePlayers":["Patrik Schick","Tomáš Souček"],"2026Result":"Group Stage"},
+
+{"name":"Canada","flag":"🇨🇦","confederation":"CONCACAF","worldCupTitles":0,"bestFinish":"Group Stage (1986, 2022)","appearances":3,"notablePlayers":["Alphonso Davies","Jonathan David"],"2026Result":null},
+{"name":"Bosnia and Herzegovina","flag":"🇧🇦","confederation":"UEFA","worldCupTitles":0,"bestFinish":"Group Stage (2014)","appearances":2,"notablePlayers":["Edin Džeko"],"2026Result":null},
+{"name":"Qatar","flag":"🇶🇦","confederation":"AFC","worldCupTitles":0,"bestFinish":"Group Stage (2022)","appearances":2,"notablePlayers":["Akram Afif"],"2026Result":"Group Stage"},
+{"name":"Switzerland","flag":"🇨🇭","confederation":"UEFA","worldCupTitles":0,"bestFinish":"Quarterfinals (1934, 1938, 1954)","appearances":12,"notablePlayers":["Granit Xhaka","Manuel Akanji"],"2026Result":null},
+
+{"name":"Brazil","flag":"🇧🇷","confederation":"CONMEBOL","worldCupTitles":5,"bestFinish":"Champions (1958, 1962, 1970, 1994, 2002)","appearances":23,"notablePlayers":["Vinícius Júnior","Rodrygo","Endrick"],"2026Result":null},
+{"name":"Morocco","flag":"🇲🇦","confederation":"CAF","worldCupTitles":0,"bestFinish":"Fourth place (2022)","appearances":7,"notablePlayers":["Achraf Hakimi","Hakim Ziyech"],"2026Result":null},
+{"name":"Haiti","flag":"🇭🇹","confederation":"CONCACAF","worldCupTitles":0,"bestFinish":"Group Stage (1974)","appearances":2,"notablePlayers":["Duckens Nazon"],"2026Result":"Group Stage"},
+{"name":"Scotland","flag":"🏴","confederation":"UEFA","worldCupTitles":0,"bestFinish":"Group Stage","appearances":9,"notablePlayers":["Scott McTominay","Andy Robertson"],"2026Result":"Group Stage"},
+
+{"name":"United States","flag":"🇺🇸","confederation":"CONCACAF","worldCupTitles":0,"bestFinish":"Third place (1930)","appearances":12,"notablePlayers":["Christian Pulisic","Weston McKennie"],"2026Result":null},
+{"name":"Paraguay","flag":"🇵🇾","confederation":"CONMEBOL","worldCupTitles":0,"bestFinish":"Quarterfinals (2010)","appearances":9,"notablePlayers":["Miguel Almirón"],"2026Result":null},
+{"name":"Australia","flag":"🇦🇺","confederation":"AFC","worldCupTitles":0,"bestFinish":"Round of 16 (2006, 2022)","appearances":7,"notablePlayers":["Mathew Ryan","Ajdin Hrustić"],"2026Result":null},
+{"name":"Turkey","flag":"🇹🇷","confederation":"UEFA","worldCupTitles":0,"bestFinish":"Third place (2002)","appearances":3,"notablePlayers":["Arda Güler"],"2026Result":"Group Stage"},
+
+{"name":"Germany","flag":"🇩🇪","confederation":"UEFA","worldCupTitles":4,"bestFinish":"Champions (1954, 1974, 1990, 2014)","appearances":20,"notablePlayers":["Jamal Musiala","Florian Wirtz"],"2026Result":null},
+{"name":"Ivory Coast","flag":"🇨🇮","confederation":"CAF","worldCupTitles":0,"bestFinish":"Group Stage","appearances":4,"notablePlayers":["Sébastien Haller"],"2026Result":null},
+{"name":"Ecuador","flag":"🇪🇨","confederation":"CONMEBOL","worldCupTitles":0,"bestFinish":"Round of 16 (2006)","appearances":5,"notablePlayers":["Moisés Caicedo"],"2026Result":null},
+{"name":"Curaçao","flag":"🇨🇼","confederation":"CONCACAF","worldCupTitles":0,"bestFinish":"Group Stage (debut)","appearances":1,"notablePlayers":["Leandro Bacuna"],"2026Result":"Group Stage"},
+
+{"name":"Netherlands","flag":"🇳🇱","confederation":"UEFA","worldCupTitles":0,"bestFinish":"Runner-up (1974, 1978, 2010)","appearances":11,"notablePlayers":["Xavi Simons","Cody Gakpo"],"2026Result":null},
+{"name":"Japan","flag":"🇯🇵","confederation":"AFC","worldCupTitles":0,"bestFinish":"Round of 16 (2002, 2010, 2018, 2022)","appearances":8,"notablePlayers":["Takefusa Kubo","Kaoru Mitoma"],"2026Result":"Round of 32"},
+{"name":"Sweden","flag":"🇸🇪","confederation":"UEFA","worldCupTitles":0,"bestFinish":"Runner-up (1958)","appearances":12,"notablePlayers":["Alexander Isak"],"2026Result":null},
+{"name":"Tunisia","flag":"🇹🇳","confederation":"CAF","worldCupTitles":0,"bestFinish":"Group Stage","appearances":7,"notablePlayers":["Hannibal Mejbri"],"2026Result":"Group Stage"},
+
+{"name":"Belgium","flag":"🇧🇪","confederation":"UEFA","worldCupTitles":0,"bestFinish":"Third place (2018)","appearances":15,"notablePlayers":["Kevin De Bruyne","Jérémy Doku"],"2026Result":null},
+{"name":"Egypt","flag":"🇪🇬","confederation":"CAF","worldCupTitles":0,"bestFinish":"Group Stage","appearances":4,"notablePlayers":["Mohamed Salah"],"2026Result":null},
+{"name":"Iran","flag":"🇮🇷","confederation":"AFC","worldCupTitles":0,"bestFinish":"Group Stage","appearances":7,"notablePlayers":["Mehdi Taremi"],"2026Result":"Group Stage"},
+{"name":"New Zealand","flag":"🇳🇿","confederation":"OFC","worldCupTitles":0,"bestFinish":"Group Stage","appearances":3,"notablePlayers":["Chris Wood"],"2026Result":"Group Stage"},
+
+{"name":"Spain","flag":"🇪🇸","confederation":"UEFA","worldCupTitles":1,"bestFinish":"Champions (2010)","appearances":16,"notablePlayers":["Lamine Yamal","Pedri"],"2026Result":null},
+{"name":"Cape Verde","flag":"🇨🇻","confederation":"CAF","worldCupTitles":0,"bestFinish":"Group Stage (debut)","appearances":1,"notablePlayers":["Ryan Mendes"],"2026Result":null},
+{"name":"Saudi Arabia","flag":"🇸🇦","confederation":"AFC","worldCupTitles":0,"bestFinish":"Round of 16 (1994)","appearances":7,"notablePlayers":["Salem Al-Dawsari"],"2026Result":"Group Stage"},
+{"name":"Uruguay","flag":"🇺🇾","confederation":"CONMEBOL","worldCupTitles":2,"bestFinish":"Champions (1930, 1950)","appearances":14,"notablePlayers":["Federico Valverde","Darwin Núñez"],"2026Result":"Group Stage"},
+
+{"name":"France","flag":"🇫🇷","confederation":"UEFA","worldCupTitles":2,"bestFinish":"Champions (1998, 2018)","appearances":16,"notablePlayers":["Kylian Mbappé","Aurélien Tchouaméni"],"2026Result":null},
+{"name":"Senegal","flag":"🇸🇳","confederation":"CAF","worldCupTitles":0,"bestFinish":"Quarterfinals (2002)","appearances":4,"notablePlayers":["Sadio Mané"],"2026Result":null},
+{"name":"Iraq","flag":"🇮🇶","confederation":"AFC","worldCupTitles":0,"bestFinish":"Group Stage (debut in this era)","appearances":1,"notablePlayers":["Ayman Hussein"],"2026Result":"Group Stage"},
+{"name":"Norway","flag":"🇳🇴","confederation":"UEFA","worldCupTitles":0,"bestFinish":"Round of 16 (1938, 1994, 1998)","appearances":4,"notablePlayers":["Erling Haaland","Martin Ødegaard"],"2026Result":null},
+
+{"name":"Argentina","flag":"🇦🇷","confederation":"CONMEBOL","worldCupTitles":3,"bestFinish":"Champions (1978, 1986, 2022)","appearances":19,"notablePlayers":["Lionel Messi","Julián Álvarez"],"2026Result":null},
+{"name":"Algeria","flag":"🇩🇿","confederation":"CAF","worldCupTitles":0,"bestFinish":"Round of 16 (2014)","appearances":5,"notablePlayers":["Riyad Mahrez"],"2026Result":null},
+{"name":"Austria","flag":"🇦🇹","confederation":"UEFA","worldCupTitles":0,"bestFinish":"Fourth place (1934, 1954)","appearances":8,"notablePlayers":["David Alaba"],"2026Result":null},
+{"name":"Jordan","flag":"🇯🇴","confederation":"AFC","worldCupTitles":0,"bestFinish":"Group Stage (debut)","appearances":1,"notablePlayers":["Yazan Al-Naimat"],"2026Result":"Group Stage"},
+
+{"name":"Colombia","flag":"🇨🇴","confederation":"CONMEBOL","worldCupTitles":0,"bestFinish":"Quarterfinals (2014)","appearances":7,"notablePlayers":["Luis Díaz","James Rodríguez"],"2026Result":null},
+{"name":"Portugal","flag":"🇵🇹","confederation":"UEFA","worldCupTitles":0,"bestFinish":"Third place (1966)","appearances":9,"notablePlayers":["Cristiano Ronaldo","Bruno Fernandes"],"2026Result":null},
+{"name":"DR Congo","flag":"🇨🇩","confederation":"CAF","worldCupTitles":0,"bestFinish":"Group Stage (debut as DR Congo; Zaire 1974)","appearances":1,"notablePlayers":["Chancel Mbemba"],"2026Result":null},
+{"name":"Uzbekistan","flag":"🇺🇿","confederation":"AFC","worldCupTitles":0,"bestFinish":"Group Stage (debut)","appearances":1,"notablePlayers":["Eldor Shomurodov"],"2026Result":"Group Stage"},
+
+{"name":"England","flag":"🏴","confederation":"UEFA","worldCupTitles":1,"bestFinish":"Champions (1966)","appearances":16,"notablePlayers":["Jude Bellingham","Bukayo Saka"],"2026Result":null},
+{"name":"Croatia","flag":"🇭🇷","confederation":"UEFA","worldCupTitles":0,"bestFinish":"Runner-up (2018)","appearances":6,"notablePlayers":["Luka Modrić"],"2026Result":null},
+{"name":"Ghana","flag":"🇬🇭","confederation":"CAF","worldCupTitles":0,"bestFinish":"Quarterfinals (2010)","appearances":5,"notablePlayers":["Mohammed Kudus"],"2026Result":null},
+{"name":"Panama","flag":"🇵🇦","confederation":"CONCACAF","worldCupTitles":0,"bestFinish":"Group Stage (2018)","appearances":2,"notablePlayers":["Adalberto Carrasquilla"],"2026Result":"Group Stage"}
+]
